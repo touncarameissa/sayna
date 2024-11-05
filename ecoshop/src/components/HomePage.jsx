@@ -1,54 +1,102 @@
 import React from "react";
-import "./HomePage.css";
+import { AppBar, Toolbar, Typography, Button, Box, Grid, Paper } from "@mui/material";
+import { green, grey } from "@mui/material/colors";
+import UseFetch from "../services/UseFetch";
 
 const HomePage = () => {
+    const products = UseFetch("/datas/productfar.json");
+    console.log(products);
+
     return (
-        <div className="eco-container">
+        <Box sx={{ backgroundColor: grey[100], minHeight: "100vh", padding: 2 }}>
             {/* En-tête */}
-            <header className="eco-header">
-                <h1>GreenShop</h1>
-                <nav className="eco-nav">
-                    <a href="#home">Accueil</a>
-                    <a href="#products">Produits</a>
-                    <a href="#about">À propos</a>
-                    <a href="#contact">Contact</a>
-                </nav>
-            </header>
+            <AppBar position="static" sx={{ backgroundColor: green[600] }}>
+                <Toolbar>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                        EcoShop
+                    </Typography>
+                    <Button color="inherit">Accueil</Button>
+                    <Button color="inherit">Produits</Button>
+                    <Button color="inherit">À propos</Button>
+                    <Button color="inherit">Contact</Button>
+                </Toolbar>
+            </AppBar>
 
             {/* Section Héros */}
-            <section className="eco-hero">
-                <h2>Produits écologiques pour un avenir durable</h2>
-                <p>Explorez notre sélection de produits respectueux de l’environnement.</p>
-                <button className="eco-cta">Découvrir nos produits</button>
-            </section>
+            <Box
+                sx={{
+                    textAlign: "center",
+                    backgroundColor: green[400],
+                    color: "white",
+                    borderRadius: 2,
+                    padding: 4,
+                    marginTop: 4,
+                }}
+            >
+                <Typography variant="h4" gutterBottom>
+                    Produits écologiques pour un avenir durable
+                </Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 300 }}>
+                    Explorez notre sélection de produits respectueux de l’environnement.
+                </Typography>
+                <Button
+                    variant="contained"
+                    sx={{ backgroundColor: green[700], marginTop: 2 }}
+                    size="large"
+                >
+                    Découvrir nos produits
+                </Button>
+            </Box>
 
             {/* Produits en vedette */}
-            <section className="eco-featured">
-                <h3>Nos produits phares</h3>
-                <div className="eco-products">
-                    <div className="eco-product">
-                        <img src="product1.jpg" alt="Produit écologique 1" />
-                        <h4>Sac en coton bio</h4>
-                        <p>Un choix durable et esthétique.</p>
-                    </div>
-                    <div className="eco-product">
-                        <img src="product2.jpg" alt="Produit écologique 2" />
-                        <h4>Gourde en inox</h4>
-                        <p>Pour dire non au plastique jetable.</p>
-                    </div>
-                    <div className="eco-product">
-                        <img src="product3.jpg" alt="Produit écologique 3" />
-                        <h4>Produits de soins naturels</h4>
-                        <p>Sans produits chimiques nocifs.</p>
-                    </div>
-                </div>
-            </section>
+            <Box sx={{ textAlign: "center", marginY: 5 }}>
+                <Typography variant="h5" gutterBottom>
+                    Nos produits phares
+                </Typography>
+                <Grid container spacing={3} sx={{ marginTop: 2 }}>
+                    {products.map((item) => (
+                        <Grid item xs={12} sm={6} md={4} key={item.id}>
+                            <Paper
+                                elevation={3}
+                                sx={{
+                                    padding: 2,
+                                    borderRadius: 2,
+                                    textAlign: "center",
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "center",
+                                    height: "100%",  // Assure une taille égale pour chaque Paper
+                                }}
+                            >
+                                <img
+                                    src={item.image}
+                                    alt={item.name}
+                                    style={{
+                                        width: "100%",
+                                        height: "300px", // Fixe la hauteur pour les images
+                                        objectFit: "cover",
+                                        borderRadius: "8px",
+                                        marginBottom: "15px",
+                                    }}
+                                />
+                                <Typography variant="h6">{item.name}</Typography>
+                                <Typography variant="body2" sx={{ color: grey[700], marginTop: 1 }}>
+                                    {item.description}
+                                </Typography>
+                                <Typography variant="body2" sx={{ color: green[700], marginTop: 1 }}>
+                                    Prix : {item.price}€
+                                </Typography>
+                            </Paper>
+                        </Grid>
+                    ))}
+                </Grid>
+            </Box>
 
             {/* Pied de page */}
-            <footer className="eco-footer">
-                <p>&copy; 2024 GreenShop - Tous droits réservés</p>
-            </footer>
-        </div>
+            <Box sx={{ backgroundColor: green[600], color: "white", padding: 2, textAlign: "center" }}>
+                <Typography variant="body2">&copy; 2024 EcoShop - Tous droits réservés</Typography>
+            </Box>
+        </Box>
     );
 };
 
