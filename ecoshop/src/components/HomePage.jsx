@@ -1,5 +1,6 @@
+// src/pages/HomePage.js
 import React from "react";
-import { AppBar, Toolbar, Typography, Button, Box, Grid, Paper } from "@mui/material";
+import { Box, Typography, Button, Grid, Paper } from "@mui/material";
 import { green, grey } from "@mui/material/colors";
 import UseFetch from "../services/UseFetch";
 
@@ -8,20 +9,7 @@ const HomePage = () => {
     console.log(products);
 
     return (
-        <Box sx={{ backgroundColor: grey[100], minHeight: "100vh", padding: 2 }}>
-            {/* En-tête */}
-            <AppBar position="static" sx={{ backgroundColor: green[600] }}>
-                <Toolbar>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        EcoShop
-                    </Typography>
-                    <Button color="inherit">Accueil</Button>
-                    <Button color="inherit">Produits</Button>
-                    <Button color="inherit">À propos</Button>
-                    <Button color="inherit">Contact</Button>
-                </Toolbar>
-            </AppBar>
-
+        <Box sx={{ backgroundColor: grey[100], padding: 2 }}>
             {/* Section Héros */}
             <Box
                 sx={{
@@ -65,7 +53,7 @@ const HomePage = () => {
                                     display: "flex",
                                     flexDirection: "column",
                                     alignItems: "center",
-                                    height: "100%",  // Assure une taille égale pour chaque Paper
+                                    height: "100%",
                                 }}
                             >
                                 <img
@@ -73,7 +61,7 @@ const HomePage = () => {
                                     alt={item.name}
                                     style={{
                                         width: "100%",
-                                        height: "300px", // Fixe la hauteur pour les images
+                                        height: "300px",
                                         objectFit: "cover",
                                         borderRadius: "8px",
                                         marginBottom: "15px",
@@ -90,11 +78,6 @@ const HomePage = () => {
                         </Grid>
                     ))}
                 </Grid>
-            </Box>
-
-            {/* Pied de page */}
-            <Box sx={{ backgroundColor: green[600], color: "white", padding: 2, textAlign: "center" }}>
-                <Typography variant="body2">&copy; 2024 EcoShop - Tous droits réservés</Typography>
             </Box>
         </Box>
     );
