@@ -3,13 +3,15 @@ import React from "react";
 import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
 import { green, grey } from "@mui/material/colors";
 import { Link } from "react-router-dom";
+import MenuIcon from '@mui/icons-material/Menu';
 
 const Header = ({ children }) => {
     return (
         <Box sx={{ backgroundColor: grey[100], minHeight: "100vh" }}>
-            {/* En-tête */}
-            <AppBar position="static" sx={{ backgroundColor: green[600] }}>
+            {/* AppBar en position fixe */}
+            <AppBar position="fixed" sx={{ backgroundColor: green[600] }}>
                 <Toolbar>
+                    <MenuIcon /> &nbsp;&nbsp;&nbsp;
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         EcoShop
                     </Typography>
@@ -20,8 +22,8 @@ const Header = ({ children }) => {
                 </Toolbar>
             </AppBar>
 
-            {/* Contenu de la page */}
-            <Box sx={{ padding: 2 }}>
+            {/* Espacement pour éviter le chevauchement du contenu */}
+            <Box sx={{ mt: { xs: "56px", sm: "64px" }, padding: 2 }}>
                 {children}
             </Box>
 

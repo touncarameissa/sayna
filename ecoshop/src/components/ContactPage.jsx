@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Box, TextField, Button, Typography } from "@mui/material";
 import { submitContactForm } from "../services/contactService";
+import { green } from "@mui/material/colors";
 
 const ContactPage = () => {
     const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -16,7 +17,7 @@ const ContactPage = () => {
         e.preventDefault();
         setStatus("Envoi en cours...");
         try {
-            await submitContactForm(formData);
+            //await submitContactForm(formData);
             setStatus("Votre message a été envoyé avec succès !");
             setFormData({ name: "", email: "", message: "" });
         } catch (error) {
@@ -26,6 +27,30 @@ const ContactPage = () => {
 
     return (
         <Box sx={{ maxWidth: 600, margin: "0 auto", padding: 3, textAlign: "center" }}>
+            <Box
+                sx={{
+                    textAlign: "center",
+                    backgroundColor: green[400],
+                    color: "white",
+                    borderRadius: 2,
+                    padding: 4,
+                    marginTop: 4,
+                }}
+            >
+                <Typography variant="h4" gutterBottom>
+                    Produits écologiques pour un avenir durable
+                </Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 300 }}>
+                    Explorez notre sélection de produits respectueux de l’environnement.
+                </Typography>
+                <Button
+                    variant="contained"
+                    sx={{ backgroundColor: green[700], marginTop: 2 }}
+                    size="large"
+                >
+                    Découvrir nos produits
+                </Button>
+            </Box>
             <Typography variant="h4" gutterBottom>Contactez-nous</Typography>
             <form onSubmit={handleSubmit}>
                 <TextField
@@ -58,7 +83,7 @@ const ContactPage = () => {
                     rows={4}
                     required
                 />
-                <Button type="submit" variant="contained" sx={{ marginTop: 2 }}>
+                <Button type="submit" color="success" variant="contained" sx={{ marginTop: 2 }}>
                     Envoyer
                 </Button>
             </form>
