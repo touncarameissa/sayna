@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "name": "panneaux solaire",
+      "price": 60,
+      "image": "/images/panneaux solaire.jpg",
+      "description": "Lutte contre les pollutions gazière"
+    },
+    {
+      "id": 2,
+      "name": "Nail polish",
+      "price": 75,
+      "image": "/images/parfum écologique.jpg",
+      "description": "senteur pur bon pour le corps et pour l'environnement"
+    },
+    {
+        "id": 3,
+        "name": "Jars",
+        "price": 75,
+        "image": "/images/jars ecologique.jpg",
+        "description": "fait avec de l'argile qui nécessite pas une exploitation abusive de sol"
+      }
+]

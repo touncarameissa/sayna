@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f0f7f4;
+    color: #2b473e;
+}
+
+.eco-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* En-tête */
+.eco-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    background-color: #81c784;
+    color: #ffffff;
+}
+
+.eco-header h1 {
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.eco-nav a {
+    color: #ffffff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.eco-nav a:hover {
+    text-decoration: underline;
+}
+
+/* Section Héros */
+.eco-hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(120deg, #81c784, #a5d6a7);
+    color: #ffffff;
+    border-radius: 8px;
+}
+
+.eco-hero h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.eco-hero p {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.eco-cta {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #388e3c;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.eco-cta:hover {
+    background-color: #2e7d32;
+}
+
+/* Produits en vedette */
+.eco-featured {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.eco-featured h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2b473e;
+}
+
+.eco-products {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.eco-product {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.eco-product img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.eco-product h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2b473e;
+    margin-bottom: 8px;
+}
+
+.eco-product p {
+    font-size: 16px;
+    font-weight: 300;
+    color: #4f5b57;
+}
+
+/* Pied de page */
+.eco-footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #81c784;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+/* Responsivité */
+@media (min-width: 768px) {
+    .eco-products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .eco-products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
