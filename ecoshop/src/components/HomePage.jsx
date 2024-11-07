@@ -1,15 +1,40 @@
 // src/pages/HomePage.js
-import React from "react";
+import React, { useState } from 'react';
 import { Box, Typography, Button, Grid, Paper } from "@mui/material";
 import { green, grey } from "@mui/material/colors";
 import UseFetch from "../services/UseFetch";
+import { Link } from 'react-router-dom';
+import CardActions from '@mui/material/CardActions';
+import IconButton from '@mui/material/IconButton';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import InfoIcon from '@mui/icons-material/Info';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItemToCart } from './CartSlice';
+import DisplayMessage from './DisplayMessage';
 
 const HomePage = () => {
     const products = UseFetch("/datas/productfar.json");
-    console.log(products);
+    const dispatch = useDispatch();
+    const cartItems = useSelector((state) => state.cart.cartItems);
+    const [showSnackbar, setShowSnackbar] = useState(false);
+    const handleAddToCart = (product) => {
+        dispatch(addItemToCart(product));
+            setShowSnackbar(true)
+      };
+      const handleCloseSnackbar = () => {
+        setShowSnackbar(false);
+      }
 
     return (
         <Box sx={{ backgroundColor: grey[100], padding: 2 }}>
+            <DisplayMessage
+                message="Produit ajouté au panier !"
+                type="success"
+                duration="6000"
+                open={showSnackbar}
+                onClose={handleCloseSnackbar}
+            />
+      
             {/* Section Héros */}
             <Box
                 sx={{
@@ -27,7 +52,8 @@ const HomePage = () => {
                 <Typography variant="subtitle1" sx={{ fontWeight: 300 }}>
                     Explorez notre sélection de produits respectueux de l’environnement.
                 </Typography>
-                <Button
+                <Button 
+                    component={Link} to="/product"
                     variant="contained"
                     sx={{ backgroundColor: green[700], marginTop: 2 }}
                     size="large"
@@ -72,8 +98,23 @@ const HomePage = () => {
                                     {item.description}
                                 </Typography>
                                 <Typography variant="body2" sx={{ color: green[700], marginTop: 1 }}>
-                                    Prix : {item.price}€
+                                    Prix : {item.price}FCA
                                 </Typography>
+                                <CardActions disableSpacing>
+                                <IconButton title="Ajouter au panier"
+                                    aria-label="add to favorites"
+                                    color='success'
+                                    onClick={() => handleAddToCart(item)}
+                                    disabled={cartItems.some((itemm) => itemm.id === item.id)}
+                                >
+                                    <AddShoppingCartIcon />
+                                </IconButton>
+                                <IconButton aria-label="view details" title="En savoir plus">
+                                    <Link to={`/products/${item.id}`} className="detail-link">
+                                    <InfoIcon />
+                                    </Link>
+                                </IconButton>
+                                </CardActions>
                             </Paper>
                         </Grid>
                     ))}
