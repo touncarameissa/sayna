@@ -1,0 +1,192 @@
+[
+    {
+      "id": 1,
+      "name": "droduit A",
+      "price": 60,
+      "image": "https://via.placeholder.com/150/4CAF50/FFFFFF?text=Produit+A",
+      "description": "Savon écologique fait main."
+    },
+    {
+      "id": 2,
+      "name": "Produit B",
+      "price": 75,
+      "image": "https://via.placeholder.com/150/8BC34A/FFFFFF?text=Produit+B",
+      "description": "Bouteille en acier inoxydable réutilisable."
+    },
+    {
+      "id": 3,
+      "name": "Produit C",
+      "price": 30,
+      "image": "https://via.placeholder.com/150/CDDC39/FFFFFF?text=Produit+C",
+      "description": "Panier en jute fait main."
+    },
+    {
+      "id": 4,
+      "name": "Produit D",
+      "price": 45,
+      "image": "https://via.placeholder.com/150/FFEB3B/000000?text=Produit+D",
+      "description": "Éponge écologique biodégradable."
+    },
+    {
+      "id": 5,
+      "name": "Produit E",
+      "price": 50,
+      "image": "https://via.placeholder.com/150/FFC107/FFFFFF?text=Produit+E",
+      "description": "Cire d'abeille pour emballages alimentaires."
+    },
+    {
+      "id": 6,
+      "name": "Produit F",
+      "price": 40,
+      "image": "https://via.placeholder.com/150/FF9800/FFFFFF?text=Produit+F",
+      "description": "Sac à vrac en coton biologique."
+    },
+    {
+      "id": 7,
+      "name": "Produit G",
+      "price": 35,
+      "image": "https://via.placeholder.com/150/FF5722/FFFFFF?text=Produit+G",
+      "description": "Savon de rasage naturel."
+    },
+    {
+      "id": 8,
+      "name": "Produit H",
+      "price": 25,
+      "image": "https://via.placeholder.com/150/795548/FFFFFF?text=Produit+H",
+      "description": "Lotion hydratante faite à la main."
+    },
+    {
+      "id": 9,
+      "name": "Produit I",
+      "price": 65,
+      "image": "https://via.placeholder.com/150/9C27B0/FFFFFF?text=Produit+I",
+      "description": "Café bio équitable."
+    },
+    {
+      "id": 10,
+      "name": "Produit J",
+      "price": 55,
+      "image": "https://via.placeholder.com/150/E91E63/FFFFFF?text=Produit+J",
+      "description": "Culotte menstruelle réutilisable."
+    },
+    {
+      "id": 11,
+      "name": "Produit K",
+      "price": 70,
+      "image": "https://via.placeholder.com/150/2196F3/FFFFFF?text=Produit+K",
+      "description": "Gourde en verre avec protection en silicone."
+    },
+    {
+      "id": 12,
+      "name": "Produit L",
+      "price": 85,
+      "image": "https://via.placeholder.com/150/3F51B5/FFFFFF?text=Produit+L",
+      "description": "Tasse en bambou réutilisable."
+    },
+    {
+      "id": 13,
+      "name": "Produit M",
+      "price": 90,
+      "image": "https://via.placeholder.com/150/673AB7/FFFFFF?text=Produit+M",
+      "description": "Savon à vaisselle solide."
+    },
+    {
+      "id": 14,
+      "name": "Produit N",
+      "price": 95,
+      "image": "https://via.placeholder.com/150/FF4081/FFFFFF?text=Produit+N",
+      "description": "Brosse à dents en bambou."
+    },
+    {
+      "id": 15,
+      "name": "Produit O",
+      "price": 75,
+      "image": "https://via.placeholder.com/150/8E24AA/FFFFFF?text=Produit+O",
+      "description": "Recharge de dentifrice naturel."
+    },
+    {
+      "id": 16,
+      "name": "Produit P",
+      "price": 65,
+      "image": "https://via.placeholder.com/150/AB47BC/FFFFFF?text=Produit+P",
+      "description": "Papier toilette recyclé."
+    },
+    {
+      "id": 17,
+      "name": "Produit Q",
+      "price": 40,
+      "image": "https://via.placeholder.com/150/00BCD4/FFFFFF?text=Produit+Q",
+      "description": "Bougie en cire naturelle."
+    },
+    {
+      "id": 18,
+      "name": "Produit R",
+      "price": 30,
+      "image": "https://via.placeholder.com/150/009688/FFFFFF?text=Produit+R",
+      "description": "Déodorant solide fait maison."
+    },
+    {
+      "id": 19,
+      "name": "Produit S",
+      "price": 55,
+      "image": "https://via.placeholder.com/150/4CAF50/FFFFFF?text=Produit+S",
+      "description": "Panier de rangement en osier."
+    },
+    {
+      "id": 20,
+      "name": "Produit T",
+      "price": 75,
+      "image": "https://via.placeholder.com/150/8BC34A/FFFFFF?text=Produit+T",
+      "description": "Fruits secs bio."
+    },
+    {
+      "id": 21,
+      "name": "Produit U",
+      "price": 90,
+      "image": "https://via.placeholder.com/150/CDDC39/FFFFFF?text=Produit+U",
+      "description": "Huile essentielle bio."
+    },
+    {
+      "id": 22,
+      "name": "Produit V",
+      "price": 85,
+      "image": "https://via.placeholder.com/150/FFEB3B/000000?text=Produit+V",
+      "description": "Thé bio en vrac."
+    },
+    {
+      "id": 23,
+      "name": "Produit W",
+      "price": 40,
+      "image": "https://via.placeholder.com/150/FFC107/FFFFFF?text=Produit+W",
+      "description": "Collier en perles naturelles."
+    },
+    {
+      "id": 24,
+      "name": "Produit X",
+      "price": 50,
+      "image": "https://via.placeholder.com/150/FF9800/FFFFFF?text=Produit+X",
+      "description": "Set de couverts en bambou."
+    },
+    {
+      "id": 25,
+      "name": "Produit Y",
+      "price": 30,
+      "image": "https://via.placeholder.com/150/FF5722/FFFFFF?text=Produit+Y",
+      "description": "Porte-monnaie en cuir vegan."
+    },
+    {
+      "id": 26,
+      "name": "Produit Z",
+      "price": 65,
+      "image": "https://via.placeholder.com/150/795548/FFFFFF?text=Produit+Z",
+      "description": "Vase en verre recyclé."
+    },
+    {
+      "id": 27,
+      "name": "Produit AA",
+      "price": 55,
+      "image": "https://via.placeholder.com/150/9C27B0/FFFFFF?text=Produit+AA",
+      "description": "Tote bag en coton bio."
+    }
+  ]
+  

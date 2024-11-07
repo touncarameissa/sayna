@@ -4,6 +4,7 @@ import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
 import { green, grey } from "@mui/material/colors";
 import { Link } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
+import AdBar from './AdBar';
 
 const Header = ({ children }) => {
     return (
@@ -16,7 +17,7 @@ const Header = ({ children }) => {
                         EcoShop
                     </Typography>
                     <Button component={Link} to="/" color="inherit">Accueil</Button>
-                    <Button color="inherit">Produits</Button>
+                    <Button component={Link} to="/product" color="inherit">Produits</Button>
                     <Button color="inherit">À propos</Button>
                     <Button component={Link} to="/contact" color="inherit">Contact</Button>
                 </Toolbar>
@@ -25,8 +26,15 @@ const Header = ({ children }) => {
             {/* Espacement pour éviter le chevauchement du contenu */}
             <Box sx={{ mt: { xs: "56px", sm: "64px" }, padding: 2 }}>
                 {children}
+            </Box >
+             {/* Partenaire */}
+             <Box  sx={{  paddingBottom: 7, textAlign: "center" }}>
+             <Typography variant="h5" gutterBottom>
+                    Nos partenaires
+                </Typography>
+                <AdBar />
             </Box>
-
+             
             {/* Pied de page */}
             <Box sx={{ backgroundColor: green[600], color: "white", padding: 2, textAlign: "center" }}>
                 <Typography variant="body2">&copy; 2024 EcoShop - Tous droits réservés</Typography>

@@ -3,6 +3,7 @@ import React from "react";
 import { Box, Typography, Button, Grid, Paper } from "@mui/material";
 import { green, grey } from "@mui/material/colors";
 import UseFetch from "../services/UseFetch";
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
     const products = UseFetch("/datas/productfar.json");
@@ -27,7 +28,8 @@ const HomePage = () => {
                 <Typography variant="subtitle1" sx={{ fontWeight: 300 }}>
                     Explorez notre sélection de produits respectueux de l’environnement.
                 </Typography>
-                <Button
+                <Button 
+                    component={Link} to="/product"
                     variant="contained"
                     sx={{ backgroundColor: green[700], marginTop: 2 }}
                     size="large"
@@ -72,7 +74,7 @@ const HomePage = () => {
                                     {item.description}
                                 </Typography>
                                 <Typography variant="body2" sx={{ color: green[700], marginTop: 1 }}>
-                                    Prix : {item.price}€
+                                    Prix : {item.price}FCA
                                 </Typography>
                             </Paper>
                         </Grid>

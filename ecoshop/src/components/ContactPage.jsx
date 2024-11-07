@@ -1,8 +1,9 @@
 // src/pages/ContactPage.js
 import React, { useState } from "react";
 import { Box, TextField, Button, Typography } from "@mui/material";
-import { submitContactForm } from "../services/contactService";
+//import { submitContactForm } from "../services/contactService";
 import { green } from "@mui/material/colors";
+import { Link } from "react-router-dom";
 
 const ContactPage = () => {
     const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -44,6 +45,7 @@ const ContactPage = () => {
                     Explorez notre sélection de produits respectueux de l’environnement.
                 </Typography>
                 <Button
+                    component={Link} to="/product"
                     variant="contained"
                     sx={{ backgroundColor: green[700], marginTop: 2 }}
                     size="large"
