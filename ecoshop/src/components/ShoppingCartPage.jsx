@@ -8,6 +8,12 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import DisplayMessage from './DisplayMessage';
+import { Link } from 'react-router-dom';
+import InfoIcon from '@mui/icons-material/Info';
+import { green,grey } from "@mui/material/colors";
+
+
+
 
 const ShoppingCartPage = () => {
   const dispatch = useDispatch();
@@ -98,8 +104,8 @@ const ShoppingCartPage = () => {
             {filteredCartItems.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item) => (
               <TableRow key={item.id}>
                 <TableCell>{item.name}</TableCell>
-                <TableCell>
-                  <img src={item.image} alt={item.name} style={{ width: 50, height: 50, objectFit: 'cover',borderRadius:18 }} />
+                <TableCell component={Link} to={`/product/${item.id}`}>
+                  <img title='Voir détails produit' src={item.image} alt={item.name} style={{ width: 50, height: 50, objectFit: 'cover',borderRadius:18 }} />
                 </TableCell>
                 <TableCell align="center">{item.price} CFA</TableCell>
                 <TableCell align="center">
@@ -112,10 +118,16 @@ const ShoppingCartPage = () => {
                   </IconButton>
                 </TableCell>
                 <TableCell align="center">
-                  <IconButton onClick={() => handleRemoveItem(item.id)} color="primary">
-                    <DeleteIcon />
-                  </IconButton>
+                  <Box display="flex" justifyContent="center" alignItems="center">
+                    <IconButton aria-label="view details" title="Voir détails produit" color='primary' component={Link} to={`/product/${item.id}`}>
+                      <InfoIcon />
+                    </IconButton>
+                    <IconButton onClick={() => handleRemoveItem(item.id)} title='Supprimer produit' color="error">
+                      <DeleteIcon />
+                    </IconButton>
+                  </Box>
                 </TableCell>
+
               </TableRow>
             ))}
           </TableBody>
@@ -134,8 +146,7 @@ const ShoppingCartPage = () => {
         <Typography  variant="h6">Montant total : {totalAmount} CFA</Typography>
         <IconButton
           onClick={handleClearCart}
-          color="primary"
-          sx={{ backgroundColor: '#28a745', color: '#fff', borderRadius: '5px', padding: '5px 10px' }}
+                    sx={{ backgroundColor: green[700], borderRadius: '5px',color:grey[300], padding: '5px 10px' }}
         >
           Vider le panier
         </IconButton>

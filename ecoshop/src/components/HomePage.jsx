@@ -109,8 +109,8 @@ const HomePage = () => {
                                 >
                                     <AddShoppingCartIcon />
                                 </IconButton>
-                                <IconButton aria-label="view details" title="En savoir plus">
-                                    <Link to={`/products/${item.id}`} className="detail-link">
+                                <IconButton aria-label="view details" title="Voir détails produit">
+                                    <Link to={`/product/${item.id}`} className="detail-link">
                                     <InfoIcon />
                                     </Link>
                                 </IconButton>

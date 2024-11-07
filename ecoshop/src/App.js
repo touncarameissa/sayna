@@ -5,6 +5,7 @@ import ContactPage from './components/ContactPage';
 import Header from './components/Header';
 import ProductPage from './components/ProductPage';
 import ShoppingCartPage from './components/ShoppingCartPage';
+import DetailProductPage from './components/DetailProductPage';
 
 function App() {
   return (
@@ -39,6 +40,14 @@ function App() {
                 element={
                     <Header>
                         <ShoppingCartPage />
+                    </Header>
+                }
+            />
+             <Route
+                path="/product/:id"
+                element={
+                    <Header>
+                        <DetailProductPage />
                     </Header>
                 }
             />
