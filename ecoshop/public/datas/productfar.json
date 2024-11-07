@@ -1,20 +1,20 @@
 [
     {
-      "id": 1,
-      "name": "panneaux solaire",
+      "id": 13,
+      "name": "Panneaux solaire",
       "price": 60,
       "image": "/images/panneaux solaire.jpg",
-      "description": "Lutte contre les pollutions gazière"
+      "description": "Lutte contre les pollutions gazière, chimique etc."
     },
     {
-      "id": 2,
-      "name": "Nail polish",
+      "id": 14,
+      "name": "Acqua di GIO",
       "price": 75,
-      "image": "/images/parfum écologique.jpg",
+      "image": "/images/parfum.jpg",
       "description": "senteur pur bon pour le corps et pour l'environnement"
     },
     {
-        "id": 3,
+        "id": 9,
         "name": "Jars",
         "price": 75,
         "image": "/images/jars ecologique.jpg",

@@ -1,192 +1,130 @@
 [
     {
       "id": 1,
-      "name": "droduit A",
+      "name": "Arachides fumées",
       "price": 60,
-      "image": "https://via.placeholder.com/150/4CAF50/FFFFFF?text=Produit+A",
-      "description": "Savon écologique fait main."
+      "image": "/images/arachide fume.jpg",
+      "description": "Bon pour l'apport calories et la santé physique"
     },
     {
       "id": 2,
-      "name": "Produit B",
+      "name": "Bananes",
       "price": 75,
-      "image": "https://via.placeholder.com/150/8BC34A/FFFFFF?text=Produit+B",
-      "description": "Bouteille en acier inoxydable réutilisable."
+      "image": "/images/banana.jpg",
+      "description": "Produit bio bon pour la perte de poids naturelle"
     },
     {
       "id": 3,
-      "name": "Produit C",
-      "price": 30,
-      "image": "https://via.placeholder.com/150/CDDC39/FFFFFF?text=Produit+C",
-      "description": "Panier en jute fait main."
+      "name": "Bicyclette",
+      "price": 100000,
+      "image": "/images/bicyclette.jpg",
+      "description": "Faite avec des matières écologique, bonne pour la santé et non polluante"
     },
     {
       "id": 4,
-      "name": "Produit D",
-      "price": 45,
-      "image": "https://via.placeholder.com/150/FFEB3B/000000?text=Produit+D",
-      "description": "Éponge écologique biodégradable."
+      "name": "Chaussure sport",
+      "price": 15000,
+      "image": "/images/chaussure sport.jpg",
+      "description": "Matières écologiques, légères et adaptées au sport"
     },
     {
       "id": 5,
-      "name": "Produit E",
-      "price": 50,
-      "image": "https://via.placeholder.com/150/FFC107/FFFFFF?text=Produit+E",
-      "description": "Cire d'abeille pour emballages alimentaires."
+      "name": "Chips pomme de terre",
+      "price": 500,
+      "image": "/images/chips pomme de terre.jpg",
+      "description": "Vigoureux et seins"
     },
     {
       "id": 6,
-      "name": "Produit F",
-      "price": 40,
-      "image": "https://via.placeholder.com/150/FF9800/FFFFFF?text=Produit+F",
-      "description": "Sac à vrac en coton biologique."
+      "name": "Citrons",
+      "price": 4000,
+      "image": "/images/citron.jpg",
+      "description": "Tonnifiant naturel"
     },
     {
       "id": 7,
-      "name": "Produit G",
+      "name": "Cornflakes",
       "price": 35,
-      "image": "https://via.placeholder.com/150/FF5722/FFFFFF?text=Produit+G",
-      "description": "Savon de rasage naturel."
+      "image": "/images/cornflakes.jpg",
+      "description": "Nourissants pour les enfants et soulage en déplacement"
     },
     {
       "id": 8,
-      "name": "Produit H",
+      "name": "Fraise",
       "price": 25,
-      "image": "https://via.placeholder.com/150/795548/FFFFFF?text=Produit+H",
-      "description": "Lotion hydratante faite à la main."
+      "image": "/images/fraise.jpg",
+      "description": "Fruit naturelle,concervation bio , ferme et mure"
     },
     {
       "id": 9,
-      "name": "Produit I",
+      "name": "Jars",
       "price": 65,
-      "image": "https://via.placeholder.com/150/9C27B0/FFFFFF?text=Produit+I",
-      "description": "Café bio équitable."
+      "image": "/images/jars ecologique.jpg",
+      "description": "Fait avec de l'argile qui nécessite pas une exploitation abusive de sol"
     },
     {
       "id": 10,
-      "name": "Produit J",
+      "name": "Jus de fruits",
       "price": 55,
-      "image": "https://via.placeholder.com/150/E91E63/FFFFFF?text=Produit+J",
-      "description": "Culotte menstruelle réutilisable."
+      "image": "/images/jus de fruits.jpg",
+      "description": "Frait,tonifiant et écologique"
     },
     {
       "id": 11,
-      "name": "Produit K",
+      "name": "Maquillage bio",
       "price": 70,
-      "image": "https://via.placeholder.com/150/2196F3/FFFFFF?text=Produit+K",
-      "description": "Gourde en verre avec protection en silicone."
+      "image": "/images/maquillage bio.jpg",
+      "description": "Pour plus de santé éléments non nossif pour l'utilisateur et pour la planète"
     },
     {
       "id": 12,
-      "name": "Produit L",
+      "name": "Pain",
       "price": 85,
-      "image": "https://via.placeholder.com/150/3F51B5/FFFFFF?text=Produit+L",
-      "description": "Tasse en bambou réutilisable."
+      "image": "/images/pain.jpg",
+      "description": "Pain à base de produit locaux"
     },
     {
       "id": 13,
-      "name": "Produit M",
-      "price": 90,
-      "image": "https://via.placeholder.com/150/673AB7/FFFFFF?text=Produit+M",
-      "description": "Savon à vaisselle solide."
+      "name": "Panneaux solaire",
+      "price": 60,
+      "image": "/images/panneaux solaire.jpg",
+      "description": "Lutte contre les pollutions gazière, chimique etc."
     },
     {
       "id": 14,
-      "name": "Produit N",
-      "price": 95,
-      "image": "https://via.placeholder.com/150/FF4081/FFFFFF?text=Produit+N",
-      "description": "Brosse à dents en bambou."
+      "name": "Acqua di GIO",
+      "price": 75,
+      "image": "/images/parfum.jpg",
+      "description": "senteur pur bon pour le corps et pour l'environnement"
     },
     {
       "id": 15,
-      "name": "Produit O",
+      "name": "Pommes de terre",
       "price": 75,
-      "image": "https://via.placeholder.com/150/8E24AA/FFFFFF?text=Produit+O",
-      "description": "Recharge de dentifrice naturel."
+      "image": "/images/pommes de terre.jpg",
+      "description": "Bio à cent pour cent de nos maraicheurs"
     },
     {
       "id": 16,
-      "name": "Produit P",
+      "name": "Poudre de chocola bio",
       "price": 65,
-      "image": "https://via.placeholder.com/150/AB47BC/FFFFFF?text=Produit+P",
-      "description": "Papier toilette recyclé."
+      "image": "/images/poudre de chocola bio.jpg",
+      "description": "A haute qualité et délicieux"
     },
     {
       "id": 17,
-      "name": "Produit Q",
+      "name": "Raisins",
       "price": 40,
-      "image": "https://via.placeholder.com/150/00BCD4/FFFFFF?text=Produit+Q",
-      "description": "Bougie en cire naturelle."
+      "image": "/images/raisins.jpg",
+      "description": "Fruits de haut de gamme certifiés ISO"
     },
     {
       "id": 18,
-      "name": "Produit R",
+      "name": "Trousseau pour les dents",
       "price": 30,
-      "image": "https://via.placeholder.com/150/009688/FFFFFF?text=Produit+R",
-      "description": "Déodorant solide fait maison."
-    },
-    {
-      "id": 19,
-      "name": "Produit S",
-      "price": 55,
-      "image": "https://via.placeholder.com/150/4CAF50/FFFFFF?text=Produit+S",
-      "description": "Panier de rangement en osier."
-    },
-    {
-      "id": 20,
-      "name": "Produit T",
-      "price": 75,
-      "image": "https://via.placeholder.com/150/8BC34A/FFFFFF?text=Produit+T",
-      "description": "Fruits secs bio."
-    },
-    {
-      "id": 21,
-      "name": "Produit U",
-      "price": 90,
-      "image": "https://via.placeholder.com/150/CDDC39/FFFFFF?text=Produit+U",
-      "description": "Huile essentielle bio."
-    },
-    {
-      "id": 22,
-      "name": "Produit V",
-      "price": 85,
-      "image": "https://via.placeholder.com/150/FFEB3B/000000?text=Produit+V",
-      "description": "Thé bio en vrac."
-    },
-    {
-      "id": 23,
-      "name": "Produit W",
-      "price": 40,
-      "image": "https://via.placeholder.com/150/FFC107/FFFFFF?text=Produit+W",
-      "description": "Collier en perles naturelles."
-    },
-    {
-      "id": 24,
-      "name": "Produit X",
-      "price": 50,
-      "image": "https://via.placeholder.com/150/FF9800/FFFFFF?text=Produit+X",
-      "description": "Set de couverts en bambou."
-    },
-    {
-      "id": 25,
-      "name": "Produit Y",
-      "price": 30,
-      "image": "https://via.placeholder.com/150/FF5722/FFFFFF?text=Produit+Y",
-      "description": "Porte-monnaie en cuir vegan."
-    },
-    {
-      "id": 26,
-      "name": "Produit Z",
-      "price": 65,
-      "image": "https://via.placeholder.com/150/795548/FFFFFF?text=Produit+Z",
-      "description": "Vase en verre recyclé."
-    },
-    {
-      "id": 27,
-      "name": "Produit AA",
-      "price": 55,
-      "image": "https://via.placeholder.com/150/9C27B0/FFFFFF?text=Produit+AA",
-      "description": "Tote bag en coton bio."
+      "image": "/images/trousseau pour dents.jpg",
+      "description": "Brosse à dents en bambou avec une patte de conditionnement bio"
     }
+    
   ]
   

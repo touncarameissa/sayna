@@ -3,14 +3,12 @@ import React from 'react';
 import Carousel from 'react-material-ui-carousel';
 import { Paper, Box, Typography } from '@mui/material';
 import { green } from "@mui/material/colors";
+import UseFetch from '../services/UseFetch';
 
-const partnerLogos = [
-  { id: 1, logo: '/partenaires/mondepure.png', name: 'Écologie & Nature' },
-  { id: 2, logo: '/partenaires/responsable.png', name: 'Commerce Responsable' },
-  { id: 3, logo: '/partenaires/soutenir.png', name: 'Produit Local' },
-];
+
 
 const AdBar = () => {
+  const partnerLogos = UseFetch("/datas/parteners.json");
   return (
     <Carousel
       indicators={false}

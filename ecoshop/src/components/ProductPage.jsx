@@ -85,9 +85,17 @@ const ProductPage = () => {
           placeholder="Entrez le nom d'un produit..."
         />
         <Typography variant="h4" fontWeight="medium" mb={3} textAlign="center">
-          Produits
+          Nos Produits
         </Typography>
-      
+         {/* Pagination */}
+         <Box mt={4} display="flex" justifyContent="center" sx={{paddingBottom:6}}>
+          <Pagination
+            count={pageCount}
+            page={page}
+            onChange={handleChangePage}
+            color="success"
+          />
+        </Box>
         <Grid container spacing={3} justifyContent="center">
           {displayedProducts.map((product) => (
             <Grid item xs={12} sm={6} md={4} key={product.id}>
