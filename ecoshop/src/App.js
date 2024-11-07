@@ -4,6 +4,7 @@ import HomePage from './components/HomePage';
 import ContactPage from './components/ContactPage';
 import Header from './components/Header';
 import ProductPage from './components/ProductPage';
+import ShoppingCartPage from './components/ShoppingCartPage';
 
 function App() {
   return (
@@ -30,6 +31,14 @@ function App() {
                 element={
                     <Header>
                         <ProductPage />
+                    </Header>
+                }
+            />
+             <Route
+                path="/cart"
+                element={
+                    <Header>
+                        <ShoppingCartPage />
                     </Header>
                 }
             />
