@@ -43,7 +43,7 @@ const Header = ({ children }) => {
         <Box sx={{ backgroundColor: grey[100], minHeight: "100vh", position: "relative" }}>
             <AppBar position="fixed" sx={{ backgroundColor: green[600] }}>
                 <Toolbar>
-                    <img src='logo/logos.png' alt="Logo" width={40} height={34} /> &nbsp;&nbsp;&nbsp;
+                    <img src='/logo/logos.png' alt="Logo" width={40} height={34} /> &nbsp;&nbsp;&nbsp;
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         EcoShop
                     </Typography>
@@ -97,7 +97,7 @@ const Header = ({ children }) => {
             </Box>
              
             <Box sx={{ backgroundColor: green[600], color: "white", padding: 2, textAlign: "center" }}>
-                <Typography variant="body2">&copy; 2024 EcoShop - Tous droits réservés</Typography> &nbsp;&nbsp;&nbsp; <img src='logo/logos.png' alt="Logo" width={40} height={34} /> 
+                <Typography variant="body2">&copy; 2024 EcoShop - Tous droits réservés</Typography> &nbsp;&nbsp;&nbsp; <img src='/logo/logos.png' alt="Logo" width={40} height={34} /> 
             </Box>
 
             <Fab

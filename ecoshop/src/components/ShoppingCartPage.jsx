@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import { useDispatch, useSelector } from 'react-redux';
 import { removeItemFromCart, clearCart, increaseItemQuantity, decreaseItemQuantity } from './CartSlice';
 import {
@@ -8,6 +8,9 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import DisplayMessage from './DisplayMessage';
+import { Link } from 'react-router-dom';
+import InfoIcon from '@mui/icons-material/Info';
+import { green, grey } from "@mui/material/colors";
 
 const ShoppingCartPage = () => {
   const dispatch = useDispatch();
@@ -17,7 +20,7 @@ const ShoppingCartPage = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [showSnackbar, setShowSnackbar] = useState(false);
-  const [searchTerm, setSearchTerm] = useState(''); // État pour le terme de recherche
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleCloseSnackbar = () => {
     setShowSnackbar(false);
@@ -51,10 +54,9 @@ const ShoppingCartPage = () => {
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
-    setPage(0); // Réinitialiser la page lorsque la recherche change
+    setPage(0);
   };
 
-  // Filtrer les articles en fonction du terme de recherche
   const filteredCartItems = cartItems.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     item.price.toString().toLowerCase().includes(searchTerm.toLowerCase())
@@ -69,7 +71,6 @@ const ShoppingCartPage = () => {
         open={showSnackbar}
         onClose={handleCloseSnackbar}
       />
-      {/* Barre de recherche */}
       <TextField
         label="Rechercher dans le panier"
         variant="outlined"
@@ -80,66 +81,79 @@ const ShoppingCartPage = () => {
         placeholder="Entrez le nom d'un produit..."
       />
       <Typography variant="h4" align="center" gutterBottom>
-        Panier
+        Votre Panier
       </Typography>
       
-      <TableContainer component={Paper}>
-        <Table aria-label="cart table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Produit</TableCell>
-              <TableCell>Image</TableCell>
-              <TableCell align="center">Prix</TableCell>
-              <TableCell align="center">Quantité</TableCell>
-              <TableCell align="center">Actions</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {filteredCartItems.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item) => (
-              <TableRow key={item.id}>
-                <TableCell>{item.name}</TableCell>
-                <TableCell>
-                  <img src={item.image} alt={item.name} style={{ width: 50, height: 50, objectFit: 'cover',borderRadius:18 }} />
-                </TableCell>
-                <TableCell align="center">{item.price} CFA</TableCell>
-                <TableCell align="center">
-                  <IconButton onClick={() => handleDecreaseQuantity(item.id)} size="small">
-                    <RemoveIcon fontSize="small" />
-                  </IconButton>
-                  {item.quantity}
-                  <IconButton onClick={() => handleIncreaseQuantity(item.id)} size="small">
-                    <AddIcon fontSize="small" />
-                  </IconButton>
-                </TableCell>
-                <TableCell align="center">
-                  <IconButton onClick={() => handleRemoveItem(item.id)} color="primary">
-                    <DeleteIcon />
-                  </IconButton>
-                </TableCell>
+      {cartItems.length === 0 ? (
+        <Typography variant="h6" align="center" color="textSecondary">
+          est vide
+        </Typography>
+      ) : (
+        <TableContainer component={Paper}>
+          <Table aria-label="cart table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Produit</TableCell>
+                <TableCell>Image</TableCell>
+                <TableCell align="center">Prix</TableCell>
+                <TableCell align="center">Quantité</TableCell>
+                <TableCell align="center">Actions</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-        <TablePagination
-          rowsPerPageOptions={[5, 10, 15]}
-          component="div"
-          count={filteredCartItems.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        />
-      </TableContainer>
-      <Box mt={2} display="flex" justifyContent="space-between">
-        <Typography  variant="h6">Montant total : {totalAmount} CFA</Typography>
-        <IconButton
-          onClick={handleClearCart}
-          color="primary"
-          sx={{ backgroundColor: '#28a745', color: '#fff', borderRadius: '5px', padding: '5px 10px' }}
-        >
-          Vider le panier
-        </IconButton>
-      </Box>
+            </TableHead>
+            <TableBody>
+              {filteredCartItems.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item) => (
+                <TableRow key={item.id}>
+                  <TableCell>{item.name}</TableCell>
+                  <TableCell component={Link} to={`/product/${item.id}`}>
+                    <img title='Voir détails produit' src={item.image} alt={item.name} style={{ width: 50, height: 50, objectFit: 'cover', borderRadius: 18 }} />
+                  </TableCell>
+                  <TableCell align="center">{item.price} CFA</TableCell>
+                  <TableCell align="center">
+                    <IconButton onClick={() => handleDecreaseQuantity(item.id)} size="small">
+                      <RemoveIcon fontSize="small" />
+                    </IconButton>
+                    {item.quantity}
+                    <IconButton onClick={() => handleIncreaseQuantity(item.id)} size="small">
+                      <AddIcon fontSize="small" />
+                    </IconButton>
+                  </TableCell>
+                  <TableCell align="center">
+                    <Box display="flex" justifyContent="center" alignItems="center">
+                      <IconButton aria-label="view details" title="Voir détails produit" color='primary' component={Link} to={`/product/${item.id}`}>
+                        <InfoIcon />
+                      </IconButton>
+                      <IconButton onClick={() => handleRemoveItem(item.id)} title='Supprimer produit' color="error">
+                        <DeleteIcon />
+                      </IconButton>
+                    </Box>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+          <TablePagination
+            rowsPerPageOptions={[5, 10, 15]}
+            component="div"
+            count={filteredCartItems.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
+        </TableContainer>
+      )}
+
+      {cartItems.length > 0 && (
+        <Box mt={2} display="flex" justifyContent="space-between">
+          <Typography variant="h6">Montant total : {totalAmount} CFA</Typography>
+          <IconButton
+            onClick={handleClearCart}
+            sx={{ backgroundColor: green[700], borderRadius: '5px', color: grey[300], padding: '5px 10px' }}
+          >
+            Vider le panier
+          </IconButton>
+        </Box>
+      )}
     </Box>
   );
 };

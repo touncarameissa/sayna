@@ -94,9 +94,6 @@ const HomePage = () => {
                                     }}
                                 />
                                 <Typography variant="h6">{item.name}</Typography>
-                                <Typography variant="body2" sx={{ color: grey[700], marginTop: 1 }}>
-                                    {item.description}
-                                </Typography>
                                 <Typography variant="body2" sx={{ color: green[700], marginTop: 1 }}>
                                     Prix : {item.price}FCA
                                 </Typography>
@@ -109,8 +106,8 @@ const HomePage = () => {
                                 >
                                     <AddShoppingCartIcon />
                                 </IconButton>
-                                <IconButton aria-label="view details" title="En savoir plus">
-                                    <Link to={`/products/${item.id}`} className="detail-link">
+                                <IconButton aria-label="view details" title="Voir détails produit">
+                                    <Link to={`/product/${item.id}`} className="detail-link">
                                     <InfoIcon />
                                     </Link>
                                 </IconButton>

@@ -152,8 +152,8 @@ const ProductPage = () => {
                   >
                     <AddShoppingCartIcon />
                   </IconButton>
-                  <IconButton aria-label="view details" title="En savoir plus">
-                    <Link to={`/products/${product.id}`} className="detail-link">
+                  <IconButton aria-label="view details" title="Voir détails produit">
+                    <Link to={`/product/${product.id}`} className="detail-link">
                       <InfoIcon />
                     </Link>
                   </IconButton>
