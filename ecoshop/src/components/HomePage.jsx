@@ -94,9 +94,6 @@ const HomePage = () => {
                                     }}
                                 />
                                 <Typography variant="h6">{item.name}</Typography>
-                                <Typography variant="body2" sx={{ color: grey[700], marginTop: 1 }}>
-                                    {item.description}
-                                </Typography>
                                 <Typography variant="body2" sx={{ color: green[700], marginTop: 1 }}>
                                     Prix : {item.price}FCA
                                 </Typography>
