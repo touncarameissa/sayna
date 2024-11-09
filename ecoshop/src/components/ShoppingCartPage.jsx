@@ -21,6 +21,7 @@ const ShoppingCartPage = () => {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [showSnackbar, setShowSnackbar] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [message,setMessage]=useState('')
 
   const handleCloseSnackbar = () => {
     setShowSnackbar(false);
@@ -28,11 +29,14 @@ const ShoppingCartPage = () => {
 
   const handleRemoveItem = (itemId) => {
     dispatch(removeItemFromCart(itemId));
+    setMessage("Produit supprimé du panier et choix actif dans la liste des produits !")
     setShowSnackbar(true);
   };
 
   const handleClearCart = () => {
     dispatch(clearCart());
+    setMessage("Panier vidé et choix de tous les produits  actif dans la liste des produits !")
+    setShowSnackbar(true);
   };
 
   const handleIncreaseQuantity = (itemId) => {
@@ -65,7 +69,7 @@ const ShoppingCartPage = () => {
   return (
     <Box sx={{ minWidth: 800, margin: 'auto', mt: 4 }}>
       <DisplayMessage
-        message="Produit supprimé du panier et choix actif dans la liste des produits !"
+        message={message}
         type="warning"
         duration="10000"
         open={showSnackbar}
