@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItemToCart } from './CartSlice';
+import { addItemToCart,removeItemFromCart } from './CartSlice';
 import { Link } from 'react-router-dom';
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Pagination from "@mui/material/Pagination";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 import Card from '@mui/material/Card';
@@ -22,6 +23,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import DisplayMessage from './DisplayMessage';
 import TextField from '@mui/material/TextField';
 import UseFetch from '../services/UseFetch';
+import NumberWithSeparator from './NumberWithSeparator';
 
 const ITEMS_PER_PAGE = 6;
 
@@ -33,6 +35,9 @@ const ProductPage = () => {
   const [page, setPage] = useState(1);
   const [showSnackbar, setShowSnackbar] = useState(false);
   const [searchTerm, setSearchTerm] = useState(""); // Nouvel état pour le terme de recherche
+  const [message,setMessage]=useState('')
+  const [color,setColor]=useState("")
+
 
   const handleCloseSnackbar = () => {
     setShowSnackbar(false);
@@ -40,7 +45,15 @@ const ProductPage = () => {
 
   const handleAddToCart = (product) => {
     dispatch(addItemToCart(product));
+    setMessage("Produit ajouté au panier !")
+    setColor('success');
     setShowSnackbar(true)
+  };
+  const handleRemoveItem = (itemId) => {
+    dispatch(removeItemFromCart(itemId));
+    setMessage("Produit supprimé du panier et choix actif dans la liste des produits !")
+    setColor("warning");
+    setShowSnackbar(true);
   };
   const productsData = UseFetch("/datas/products.json")
   const handleChangePage = (event, value) => {
@@ -66,8 +79,8 @@ const ProductPage = () => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 4 }}>
       <DisplayMessage
-        message="Produit ajouté au panier !"
-        type="success"
+        message={message}
+        type={color}
         duration="6000"
         open={showSnackbar}
         onClose={handleCloseSnackbar}
@@ -126,21 +139,21 @@ const ProductPage = () => {
                   title={product.name}
                 />
                 <CardMedia
-                style={{
-                    width: "100%",
-                    height: "300px",
-                    objectFit: "cover",
-                    borderRadius: "8px",
-                    marginBottom: "15px",
-                }}
-                  component="img"
-                  height="194"
-                  image={product.image}
-                  alt={product.name}
+                  sx={{
+                      width: "100%",
+                      height: "300px",
+                      objectFit: "cover",
+                      borderRadius: "8px",
+                      marginBottom: "15px",
+                  }}
+                    component="img"
+                    height="194"
+                    image={product.image}
+                    alt={product.name}
                 />
                 <CardContent>
                   <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    {product.price} CFA
+                    <NumberWithSeparator number={product.price} />
                   </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
@@ -152,10 +165,12 @@ const ProductPage = () => {
                   >
                     <AddShoppingCartIcon />
                   </IconButton>
-                  <IconButton aria-label="view details" title="Voir détails produit">
-                    <Link to={`/product/${product.id}`} className="detail-link">
-                      <InfoIcon />
-                    </Link>
+                  <IconButton onClick={() => handleRemoveItem(product.id)} 
+                    disabled={!cartItems.some((item) => item.id === product.id)} title='Supprimer produit du panier' color="error">
+                    <DeleteIcon />
+                  </IconButton>
+                  <IconButton color='info' aria-label="view details" title="Voir détails produit" component={Link} to={`/product/${product.id}`}>
+                    <InfoIcon />
                   </IconButton>
                 </CardActions>
               </Card>

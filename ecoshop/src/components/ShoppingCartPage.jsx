@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeItemFromCart, clearCart, increaseItemQuantity, decreaseItemQuantity } from './CartSlice';
 import {
-  Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, TablePagination, Typography, Box, TextField
+  Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, TablePagination, Typography, Box, TextField, Grid
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
@@ -11,6 +11,8 @@ import DisplayMessage from './DisplayMessage';
 import { Link } from 'react-router-dom';
 import InfoIcon from '@mui/icons-material/Info';
 import { green, grey } from "@mui/material/colors";
+import CardMedia from '@mui/material/CardMedia';
+import NumberWithSeparator from './NumberWithSeparator';
 
 const ShoppingCartPage = () => {
   const dispatch = useDispatch();
@@ -21,6 +23,7 @@ const ShoppingCartPage = () => {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [showSnackbar, setShowSnackbar] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [message, setMessage] = useState('');
 
   const handleCloseSnackbar = () => {
     setShowSnackbar(false);
@@ -28,11 +31,14 @@ const ShoppingCartPage = () => {
 
   const handleRemoveItem = (itemId) => {
     dispatch(removeItemFromCart(itemId));
+    setMessage("Produit supprimé du panier et choix actif dans la liste des produits !");
     setShowSnackbar(true);
   };
 
   const handleClearCart = () => {
     dispatch(clearCart());
+    setMessage("Panier vidé et choix de tous les produits actif dans la liste des produits !");
+    setShowSnackbar(true);
   };
 
   const handleIncreaseQuantity = (itemId) => {
@@ -63,23 +69,27 @@ const ShoppingCartPage = () => {
   );
 
   return (
-    <Box sx={{ minWidth: 800, margin: 'auto', mt: 4 }}>
+    <Box sx={{ minWidth: 320, margin: 'auto', mt: 4, padding: { xs: 2, sm: 4 } }}>
       <DisplayMessage
-        message="Produit supprimé du panier et choix actif dans la liste des produits !"
+        message={message}
         type="warning"
         duration="10000"
         open={showSnackbar}
         onClose={handleCloseSnackbar}
       />
-      <TextField
-        label="Rechercher dans le panier"
-        variant="outlined"
-        fullWidth
-        margin="normal"
-        value={searchTerm}
-        onChange={handleSearchChange}
-        placeholder="Entrez le nom d'un produit..."
-      />
+      
+      {cartItems.length > 0 && (
+        <TextField
+          label="Rechercher dans le panier"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          value={searchTerm}
+          onChange={handleSearchChange}
+          placeholder="Entrez le nom d'un produit..."
+        />
+      )}
+      
       <Typography variant="h4" align="center" gutterBottom>
         Votre Panier
       </Typography>
@@ -105,17 +115,25 @@ const ShoppingCartPage = () => {
                 <TableRow key={item.id}>
                   <TableCell>{item.name}</TableCell>
                   <TableCell component={Link} to={`/product/${item.id}`}>
-                    <img title='Voir détails produit' src={item.image} alt={item.name} style={{ width: 50, height: 50, objectFit: 'cover', borderRadius: 18 }} />
+                    <CardMedia
+                        sx={{width: '50px', height: '50px', objectFit: 'cover', borderRadius: '18px' }}
+                        component="img"
+                        title='Voir détails produit'
+                        image={item.image}
+                        alt={item.name}
+                    />
                   </TableCell>
-                  <TableCell align="center">{item.price} CFA</TableCell>
+                  <TableCell align="center" sx={{width:'30%'}}><NumberWithSeparator number={item.price} /></TableCell>
                   <TableCell align="center">
-                    <IconButton onClick={() => handleDecreaseQuantity(item.id)} size="small">
-                      <RemoveIcon fontSize="small" />
-                    </IconButton>
-                    {item.quantity}
-                    <IconButton onClick={() => handleIncreaseQuantity(item.id)} size="small">
-                      <AddIcon fontSize="small" />
-                    </IconButton>
+                    <Box display="flex" justifyContent="center" alignItems="center">
+                      <IconButton onClick={() => handleDecreaseQuantity(item.id)} size="small">
+                        <RemoveIcon fontSize="small" />
+                      </IconButton>
+                      {item.quantity}
+                      <IconButton onClick={() => handleIncreaseQuantity(item.id)} size="small">
+                        <AddIcon fontSize="small" />
+                      </IconButton>
+                    </Box>
                   </TableCell>
                   <TableCell align="center">
                     <Box display="flex" justifyContent="center" alignItems="center">
@@ -144,17 +162,22 @@ const ShoppingCartPage = () => {
       )}
 
       {cartItems.length > 0 && (
-        <Box mt={2} display="flex" justifyContent="space-between">
-          <Typography variant="h6">Montant total : {totalAmount} CFA</Typography>
-          <IconButton
-            onClick={handleClearCart}
-            sx={{ backgroundColor: green[700], borderRadius: '5px', color: grey[300], padding: '5px 10px' }}
-          >
-            Vider le panier
-          </IconButton>
-        </Box>
+        <Grid container justifyContent="space-between" mt={2}>
+          <Grid item xs={12} sm="auto">
+            <Typography variant="h6">Montant total : {new Intl.NumberFormat('fr-FR').format(totalAmount)} FCFA</Typography>
+          </Grid>
+          <Grid item xs={12} sm="auto">
+            <IconButton
+              onClick={handleClearCart}
+              sx={{ backgroundColor: green[700], borderRadius: '5px', color: grey[300], padding: '5px 10px' }}
+            >
+              Vider le panier
+            </IconButton>
+          </Grid>
+        </Grid>
       )}
     </Box>
+
   );
 };
 

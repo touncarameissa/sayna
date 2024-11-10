@@ -39,7 +39,7 @@ const ContactPage = () => {
                 }}
             >
                 <Typography variant="h4" gutterBottom>
-                    Produits écologiques pour un avenir durable
+                    Influencer au maximum pour une planette pure et durable
                 </Typography>
                 <Typography variant="subtitle1" sx={{ fontWeight: 300 }}>
                     Explorez notre sélection de produits respectueux de l’environnement.

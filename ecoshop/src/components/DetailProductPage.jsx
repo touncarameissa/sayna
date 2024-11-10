@@ -8,9 +8,12 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { green, grey } from "@mui/material/colors";
 import { useDispatch, useSelector } from 'react-redux';
 import DisplayMessage from './DisplayMessage';
-import { addItemToCart } from './CartSlice';
+import { addItemToCart,removeItemFromCart } from './CartSlice';
 import CardHeader from '@mui/material/CardHeader';
 import Avatar from '@mui/material/Avatar';
+import DeleteIcon from '@mui/icons-material/Delete';
+import CardMedia from '@mui/material/CardMedia';
+import NumberWithSeparator from './NumberWithSeparator';
 
 const DetailProductPage = () => {
   const { id } = useParams(); // Récupère l'ID du produit depuis l'URL
@@ -19,9 +22,19 @@ const DetailProductPage = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cartItems);
   const [showSnackbar, setShowSnackbar] = useState(false);
+  const [message,setMessage]=useState('')
+  const [color,setColor]=useState("")
   const handleAddToCart = (product) => {
     dispatch(addItemToCart(product));
-        setShowSnackbar(true)
+    setMessage("Produit ajouté au panier !")
+    setColor('success');
+    setShowSnackbar(true)
+  };
+  const handleRemoveItem = (itemId) => {
+    dispatch(removeItemFromCart(itemId));
+    setMessage("Produit supprimé du panier et choix actif dans la liste des produits !")
+    setColor("warning");
+    setShowSnackbar(true);
   };
   const handleCloseSnackbar = () => {
     setShowSnackbar(false);
@@ -36,13 +49,13 @@ const DetailProductPage = () => {
      <Grid
       container
       justifyContent="center"
-      alignItems="center"
-      sx={{ minHeight: "100vh", backgroundColor: grey[100] }}
+      alignItems="center"     
+      sx={{ minHeight: "100vh", backgroundColor: grey[100], paddingTop:7 }}
     >
         <Grid item xs={12} sm={6} md={8} >
             <DisplayMessage
-                message="Produit ajouté au panier !"
-                type="success"
+                message={message}
+                type={color}
                 duration="6000"
                 open={showSnackbar}
                 onClose={handleCloseSnackbar}
@@ -66,18 +79,21 @@ const DetailProductPage = () => {
                   }
                   title={product.name}
                 />
-                <img
-                    src={product.image}
-                    alt={product.name}
-                    style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    borderRadius: "8px",
-                    marginBottom: "15px",
-                }}/>
+                 <CardMedia
+                    x={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      borderRadius: "8px",
+                      marginBottom: "15px",
+                      }}
+                      component="img"
+                      height="100%"
+                      image={product.image}
+                      alt={product.name}
+                  />
                 <Typography variant="body2" sx={{ color: green[700], marginTop: 1 }}>
-                    Prix : {product.price}FCA
+                    <NumberWithSeparator number={product.price} />
                 </Typography>
                 <CardActions disableSpacing>
                     <IconButton title="Ajouter au panier"
@@ -86,6 +102,10 @@ const DetailProductPage = () => {
                         onClick={() => handleAddToCart(product)}
                         disabled={cartItems.some((itemm) => itemm.id === product.id)}>
                         <AddShoppingCartIcon />
+                    </IconButton>
+                    <IconButton onClick={() => handleRemoveItem(product.id)} 
+                      disabled={!cartItems.some((item) => item.id === product.id)} title='Supprimer produit du panier' color="error">
+                      <DeleteIcon />
                     </IconButton>
                 </CardActions>
                 <Typography variant="body2" sx={{ color: grey[700], marginTop: 1 }}>

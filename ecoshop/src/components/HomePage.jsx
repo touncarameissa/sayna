@@ -9,27 +9,40 @@ import IconButton from '@mui/material/IconButton';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import InfoIcon from '@mui/icons-material/Info';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItemToCart } from './CartSlice';
+import { addItemToCart,removeItemFromCart } from './CartSlice';
+import DeleteIcon from '@mui/icons-material/Delete';
 import DisplayMessage from './DisplayMessage';
+import CardMedia from '@mui/material/CardMedia';
+import NumberWithSeparator from './NumberWithSeparator';
 
 const HomePage = () => {
     const products = UseFetch("/datas/productfar.json");
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart.cartItems);
     const [showSnackbar, setShowSnackbar] = useState(false);
-    const handleAddToCart = (product) => {
-        dispatch(addItemToCart(product));
-            setShowSnackbar(true)
-      };
-      const handleCloseSnackbar = () => {
+    const [message,setMessage]=useState('')
+  const [color,setColor]=useState("")
+  const handleAddToCart = (product) => {
+    dispatch(addItemToCart(product));
+    setMessage("Produit ajouté au panier !")
+    setColor('success');
+    setShowSnackbar(true)
+    };
+    const handleRemoveItem = (itemId) => {
+        dispatch(removeItemFromCart(itemId));
+        setMessage("Produit supprimé du panier et choix actif dans la liste des produits !")
+        setColor("warning");
+        setShowSnackbar(true);
+    };
+    const handleCloseSnackbar = () => {
         setShowSnackbar(false);
-      }
+    }
 
     return (
         <Box sx={{ backgroundColor: grey[100], padding: 2 }}>
             <DisplayMessage
-                message="Produit ajouté au panier !"
-                type="success"
+                message={message}
+                type={color}
                 duration="6000"
                 open={showSnackbar}
                 onClose={handleCloseSnackbar}
@@ -82,20 +95,22 @@ const HomePage = () => {
                                     height: "100%",
                                 }}
                             >
-                                <img
-                                    src={item.image}
-                                    alt={item.name}
-                                    style={{
+                                <CardMedia
+                                    sx={{
                                         width: "100%",
                                         height: "300px",
                                         objectFit: "cover",
                                         borderRadius: "8px",
                                         marginBottom: "15px",
                                     }}
+                                    component="img"
+                                    height="194"
+                                    image={item.image}
+                                    alt={item.name}
                                 />
                                 <Typography variant="h6">{item.name}</Typography>
                                 <Typography variant="body2" sx={{ color: green[700], marginTop: 1 }}>
-                                    Prix : {item.price}FCA
+                                     <NumberWithSeparator number={item.price} />
                                 </Typography>
                                 <CardActions disableSpacing>
                                 <IconButton title="Ajouter au panier"
@@ -106,10 +121,12 @@ const HomePage = () => {
                                 >
                                     <AddShoppingCartIcon />
                                 </IconButton>
-                                <IconButton aria-label="view details" title="Voir détails produit">
-                                    <Link to={`/product/${item.id}`} className="detail-link">
+                                <IconButton onClick={() => handleRemoveItem(item.id)} 
+                                    disabled={!cartItems.some((itemm) => itemm.id === item.id)} title='Supprimer produit du panier' color="error">
+                                    <DeleteIcon />
+                                </IconButton>
+                                <IconButton color='info' aria-label="view details" title="Voir détails produit" component={Link} to={`/product/${item.id}`}>
                                     <InfoIcon />
-                                    </Link>
                                 </IconButton>
                                 </CardActions>
                             </Paper>
