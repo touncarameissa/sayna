@@ -12,6 +12,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addItemToCart,removeItemFromCart } from './CartSlice';
 import DeleteIcon from '@mui/icons-material/Delete';
 import DisplayMessage from './DisplayMessage';
+import CardMedia from '@mui/material/CardMedia';
+import NumberWithSeparator from './NumberWithSeparator';
 
 const HomePage = () => {
     const products = UseFetch("/datas/productfar.json");
@@ -93,20 +95,22 @@ const HomePage = () => {
                                     height: "100%",
                                 }}
                             >
-                                <img
-                                    src={item.image}
-                                    alt={item.name}
-                                    style={{
+                                <CardMedia
+                                    sx={{
                                         width: "100%",
                                         height: "300px",
                                         objectFit: "cover",
                                         borderRadius: "8px",
                                         marginBottom: "15px",
                                     }}
+                                    component="img"
+                                    height="194"
+                                    image={item.image}
+                                    alt={item.name}
                                 />
                                 <Typography variant="h6">{item.name}</Typography>
                                 <Typography variant="body2" sx={{ color: green[700], marginTop: 1 }}>
-                                    Prix : {item.price}FCA
+                                     <NumberWithSeparator number={item.price} />
                                 </Typography>
                                 <CardActions disableSpacing>
                                 <IconButton title="Ajouter au panier"

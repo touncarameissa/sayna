@@ -16,14 +16,14 @@ const AdBar = () => {
       interval={4000}
       navButtonsAlwaysVisible
       navButtonsProps={{
-        style: {
+        sx: {
           backgroundColor: green[600], // Vert doux pour un effet écologique
           color: 'white',
           borderRadius: '50%',
         }
       }}
       navButtonsWrapperProps={{
-        style: {
+        sx: {
           top: '50%',
           transform: 'translateY(-50%)',
         }

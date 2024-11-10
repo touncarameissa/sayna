@@ -50,17 +50,17 @@ const Header = ({ children }) => {
             }}>
                 <Toolbar>
                     <img src='/logo/logos.png' alt="Logo" width={40} height={34} /> &nbsp;&nbsp;&nbsp;
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
                         EcoShop
                     </Typography>
 
                     {/* Phone Number */}
-                    <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', mr: 2 }}>
-                        <IconButton color="inherit" href="tel:+1234567890">
+                    <Box sx={{ display: { xs: 'flex', sm: 'flex' }, alignItems: 'center', ml: 'auto', mr: 2 }}>
+                        <IconButton color="inherit" href="tel:+221773237733">
                             <PhoneIcon />
                         </IconButton>
-                        <Typography variant="body2" component="a" href="tel:+1234567890" sx={{ color: 'inherit', textDecoration: 'none' }}>
-                            +(221) 33 567-89-50
+                        <Typography variant="body2" component="a" href="tel:+221773237733" sx={{ color: 'inherit', textDecoration: 'none' }}>
+                            +(221) 77 323 77 33
                         </Typography>
                     </Box>
 
@@ -68,7 +68,7 @@ const Header = ({ children }) => {
                         {renderMenuItems()}
                     </Box>
 
-                    <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+                    <Box sx={{ display: { xs: 'flex', md: 'none' }, ml: 'auto' }}>
                         <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
                             <MenuIcon />
                         </IconButton>
@@ -121,12 +121,14 @@ const Header = ({ children }) => {
                         </Typography>
                     </Grid>
 
-                    <Grid item xs={6} md={2}>
+                    <Grid item xs={6} md={2} >
+                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                         <Typography variant="h6" gutterBottom>Liens Utiles</Typography>
-                        <Typography variant="body2"><a href="/" style={{ color: 'white', textDecoration: 'none' }}>Accueil</a></Typography>
-                        <Typography variant="body2"><a href="/product" style={{ color: 'white', textDecoration: 'none' }}>Produits</a></Typography>
-                        <Typography variant="body2"><a href="/contact" style={{ color: 'white', textDecoration: 'none' }}>Contact</a></Typography>
-                        <Typography variant="body2"><a href="#partners-section" style={{ color: 'white', textDecoration: 'none' }}>Nos partenaires</a></Typography>
+                        <Typography variant="body2" to={"/"} component={Link} sx={{ color: 'white', textDecoration: 'none' }}>Accueil</Typography>
+                        <Typography variant="body2" to={"/product"} component={Link} sx={{ color: 'white', textDecoration: 'none' }}>Produits</Typography>
+                        <Typography variant="body2" to={"/contact"} component={Link} sx={{ color: 'white', textDecoration: 'none' }}>Contact</Typography>
+                        <Typography variant="body2" onClick={scrollToPartners} sx={{ color: 'white', textDecoration: 'none' }}>Nos partenaires</Typography>
+                    </Box>
                     </Grid>
 
                     <Grid item xs={12} md={4}>
@@ -141,7 +143,7 @@ const Header = ({ children }) => {
                                 fullWidth
                                 InputProps={{
                                     disableUnderline: true,
-                                    style: { backgroundColor: "white", borderRadius: 4, marginRight: 8 }
+                                    sx: { backgroundColor: "white", marginRight: 8 }
                                 }}
                             />
                             <Button variant="contained" sx={{ backgroundColor: grey[800], color: "white" }}>

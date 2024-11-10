@@ -23,6 +23,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import DisplayMessage from './DisplayMessage';
 import TextField from '@mui/material/TextField';
 import UseFetch from '../services/UseFetch';
+import NumberWithSeparator from './NumberWithSeparator';
 
 const ITEMS_PER_PAGE = 6;
 
@@ -138,21 +139,21 @@ const ProductPage = () => {
                   title={product.name}
                 />
                 <CardMedia
-                style={{
-                    width: "100%",
-                    height: "300px",
-                    objectFit: "cover",
-                    borderRadius: "8px",
-                    marginBottom: "15px",
-                }}
-                  component="img"
-                  height="194"
-                  image={product.image}
-                  alt={product.name}
+                  sx={{
+                      width: "100%",
+                      height: "300px",
+                      objectFit: "cover",
+                      borderRadius: "8px",
+                      marginBottom: "15px",
+                  }}
+                    component="img"
+                    height="194"
+                    image={product.image}
+                    alt={product.name}
                 />
                 <CardContent>
                   <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    {product.price} CFA
+                    <NumberWithSeparator number={product.price} />
                   </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
