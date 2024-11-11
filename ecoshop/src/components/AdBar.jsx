@@ -13,7 +13,7 @@ const AdBar = () => {
     <Carousel
       indicators={false}
       animation="slide"
-      interval={4000}
+      interval={3000}
       navButtonsAlwaysVisible
       navButtonsProps={{
         sx: {
