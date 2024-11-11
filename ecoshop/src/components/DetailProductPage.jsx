@@ -17,7 +17,7 @@ import NumberWithSeparator from './NumberWithSeparator';
 
 const DetailProductPage = () => {
   const { id } = useParams(); // Récupère l'ID du produit depuis l'URL
-  const productsData=UseFetch("/datas/products.json")
+  const productsData=UseFetch(`${process.env.PUBLIC_URL}/datas/products.json`);
   const product = productsData.find(product => product.id === parseInt(id)); // Trouve le produit par ID
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -101,7 +101,7 @@ const DetailProductPage = () => {
                       }}
                       component="img"
                       height="100%"
-                      image={product.image}
+                      image={`${process.env.PUBLIC_URL}${product.image}`}
                       alt={product.name}
                   />
                 <Typography variant="body2" sx={{ color: green[700], marginTop: 1 }}>
