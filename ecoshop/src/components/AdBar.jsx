@@ -8,7 +8,7 @@ import UseFetch from '../services/UseFetch';
 
 
 const AdBar = () => {
-  const partnerLogos = UseFetch("/datas/parteners.json");
+  const partnerLogos = UseFetch(`${process.env.PUBLIC_URL}/datas/parteners.json`);;
   return (
     <Carousel
       indicators={false}
@@ -43,7 +43,7 @@ const AdBar = () => {
         >
           <Box
             component="img"
-            src={partner.logo}
+            src={`${process.env.PUBLIC_URL}${partner.logo}`}
             alt={partner.name}
             sx={{
               height: 80, // Ajuster la taille selon les logos
