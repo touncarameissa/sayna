@@ -9,7 +9,7 @@ import DetailProductPage from './components/DetailProductPage';
 
 function App() {
   return (
-    <Router basename="/sayna/ecoshop">
+    <Router basename={process.env.PUBLIC_URL}>
         <Routes>
             <Route
                 path="/"
