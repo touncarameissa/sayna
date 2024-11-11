@@ -11,7 +11,7 @@ import DisplayMessage from './DisplayMessage';
 import { addItemToCart,removeItemFromCart } from './CartSlice';
 import CardHeader from '@mui/material/CardHeader';
 import Avatar from '@mui/material/Avatar';
-import DeleteIcon from '@mui/icons-material/Delete';
+import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import CardMedia from '@mui/material/CardMedia';
 import NumberWithSeparator from './NumberWithSeparator';
 
@@ -52,7 +52,19 @@ const DetailProductPage = () => {
       alignItems="center"     
       sx={{ minHeight: "100vh", backgroundColor: grey[100], paddingTop:7 }}
     >
-        <Grid item xs={12} sm={6} md={8} >
+        <Grid item xs={12} sm={6} md={8} 
+            sx={{
+              transition: "transform 0.3s ease-in-out",
+              "&:hover": {
+                  animation: "bounce 0.6s ease-in-out",
+                  "@keyframes bounce": {
+                  "0%": { transform: "scale(1) translateY(0)" },
+                  "30%": { transform: "scale(1.05) translateY(-10px)" },
+                  "60%": { transform: "scale(0.98) translateY(5px)" },
+                  "100%": { transform: "scale(1) translateY(0)" },
+                  }
+              }
+            }}>
             <DisplayMessage
                 message={message}
                 type={color}
@@ -105,7 +117,7 @@ const DetailProductPage = () => {
                     </IconButton>
                     <IconButton onClick={() => handleRemoveItem(product.id)} 
                       disabled={!cartItems.some((item) => item.id === product.id)} title='Supprimer produit du panier' color="error">
-                      <DeleteIcon />
+                      <RemoveShoppingCartIcon />
                     </IconButton>
                 </CardActions>
                 <Typography variant="body2" sx={{ color: grey[700], marginTop: 1 }}>

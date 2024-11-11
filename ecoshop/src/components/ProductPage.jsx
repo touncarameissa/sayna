@@ -6,7 +6,7 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Pagination from "@mui/material/Pagination";
-import DeleteIcon from '@mui/icons-material/Delete';
+import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 
 
 import Card from '@mui/material/Card';
@@ -21,7 +21,8 @@ import { green } from '@mui/material/colors';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import InfoIcon from '@mui/icons-material/Info';
 import DisplayMessage from './DisplayMessage';
-import TextField from '@mui/material/TextField';
+import { TextField, InputAdornment } from "@mui/material";
+import SearchIcon from '@mui/icons-material/Search';
 import UseFetch from '../services/UseFetch';
 import NumberWithSeparator from './NumberWithSeparator';
 
@@ -89,13 +90,34 @@ const ProductPage = () => {
       <Box sx={{ maxWidth: 1200, width: '100%', px: 2 }}>
         {/* Barre de recherche */}
         <TextField
-          label="Rechercher un produit"
-          variant="outlined"
-          fullWidth
-          margin="normal"
-          value={searchTerm}
-          onChange={handleSearchChange}
-          placeholder="Entrez le nom d'un produit..."
+            label="Rechercher un produit"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            value={searchTerm}
+            onChange={handleSearchChange}
+            placeholder="Entrez le nom d'un produit..."
+            InputProps={{
+                startAdornment: (
+                    <InputAdornment position="start">
+                        <SearchIcon color="success" />
+                    </InputAdornment>
+                ),
+                sx: {
+                    borderRadius: '20px',
+                    backgroundColor: '#f5f5f5',
+                    '&:hover .MuiOutlinedInput-notchedOutline': {
+                        borderColor: '#4caf50',
+                    },
+                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                        borderColor: '#4caf50',
+                    },
+                },
+            }}
+            sx={{
+                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                borderRadius: '20px',
+            }}
         />
         <Typography variant="h4" fontWeight="medium" mb={3} textAlign="center">
           Nos Produits
@@ -167,7 +189,7 @@ const ProductPage = () => {
                   </IconButton>
                   <IconButton onClick={() => handleRemoveItem(product.id)} 
                     disabled={!cartItems.some((item) => item.id === product.id)} title='Supprimer produit du panier' color="error">
-                    <DeleteIcon />
+                    <RemoveShoppingCartIcon />
                   </IconButton>
                   <IconButton color='info' aria-label="view details" title="Voir détails produit" component={Link} to={`/product/${product.id}`}>
                     <InfoIcon />

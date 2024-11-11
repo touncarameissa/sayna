@@ -10,7 +10,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import InfoIcon from '@mui/icons-material/Info';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItemToCart,removeItemFromCart } from './CartSlice';
-import DeleteIcon from '@mui/icons-material/Delete';
+import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import DisplayMessage from './DisplayMessage';
 import CardMedia from '@mui/material/CardMedia';
 import NumberWithSeparator from './NumberWithSeparator';
@@ -82,7 +82,21 @@ const HomePage = () => {
                 </Typography>
                 <Grid container spacing={3} sx={{ marginTop: 2 }}>
                     {products.map((item) => (
-                        <Grid item xs={12} sm={6} md={4} key={item.id}>
+                        <Grid item xs={12} sm={6} md={4} key={item.id}
+                            variant="outlined"
+                            sx={{
+                                transition: "transform 0.3s ease-in-out",
+                                "&:hover": {
+                                    animation: "bounce 0.6s ease-in-out",
+                                    "@keyframes bounce": {
+                                    "0%": { transform: "scale(1) translateY(0)" },
+                                    "30%": { transform: "scale(1.05) translateY(-10px)" },
+                                    "60%": { transform: "scale(0.98) translateY(5px)" },
+                                    "100%": { transform: "scale(1) translateY(0)" },
+                                    }
+                                }
+                            }}
+                        >
                             <Paper
                                 elevation={3}
                                 sx={{
@@ -123,7 +137,7 @@ const HomePage = () => {
                                 </IconButton>
                                 <IconButton onClick={() => handleRemoveItem(item.id)} 
                                     disabled={!cartItems.some((itemm) => itemm.id === item.id)} title='Supprimer produit du panier' color="error">
-                                    <DeleteIcon />
+                                    <RemoveShoppingCartIcon />
                                 </IconButton>
                                 <IconButton color='info' aria-label="view details" title="Voir détails produit" component={Link} to={`/product/${item.id}`}>
                                     <InfoIcon />
