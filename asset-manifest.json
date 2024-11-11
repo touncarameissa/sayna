@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/sayna/ecoshop/static/css/main.f855e6bc.css",
-    "main.js": "/sayna/ecoshop/static/js/main.8567798b.js",
+    "main.js": "/sayna/ecoshop/static/js/main.4d1d4d64.js",
     "static/js/453.07e4e2a1.chunk.js": "/sayna/ecoshop/static/js/453.07e4e2a1.chunk.js",
     "index.html": "/sayna/ecoshop/index.html",
     "main.f855e6bc.css.map": "/sayna/ecoshop/static/css/main.f855e6bc.css.map",
-    "main.8567798b.js.map": "/sayna/ecoshop/static/js/main.8567798b.js.map",
+    "main.4d1d4d64.js.map": "/sayna/ecoshop/static/js/main.4d1d4d64.js.map",
     "453.07e4e2a1.chunk.js.map": "/sayna/ecoshop/static/js/453.07e4e2a1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.8567798b.js"
+    "static/js/main.4d1d4d64.js"
   ]
 }
