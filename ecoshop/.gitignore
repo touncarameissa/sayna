@@ -9,7 +9,8 @@
 /coverage
 
 # production
-/build
+# Ne pas ignorer le dossier /build, car il est nécessaire pour GitHub Pages
+# /build
 
 # misc
 .DS_Store
