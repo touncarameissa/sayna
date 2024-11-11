@@ -1,7 +1,7 @@
 {
+  "homepage": "https://touncarameissa.github.io/sayna/ecoshop",
   "name": "ecoshop",
   "version": "0.1.0",
-  "homepage": "https://touncarameissa.github.io/sayna/ecoshop",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.13.3",
