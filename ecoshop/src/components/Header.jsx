@@ -17,7 +17,15 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 
 const Header = ({ children }) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
-    const cartItemsCount = useSelector(state => state.cart.cartItems.length);
+    const cartItems = useSelector(state => state.cart.cartItems);
+    const cartItemsCount = cartItems.length;
+    const message = cartItemsCount > 0 ? cartItems.map(item => 
+    `Produit: ${item.name}, Quantité: ${item.quantity}, PU: ${new Intl.NumberFormat('fr-FR').format(item.price)} CFA , Prix Total: ${new Intl.NumberFormat('fr-FR').format(item.price*item.quantity)} FCFA`
+    ).join('\n'): ""
+
+    // Encodez le message pour l'URL
+    const whatsappMessage = cartItemsCount > 0 ?  encodeURIComponent(`Bonjour, voici les produits que je souhaite acheter:\n${message}`):encodeURIComponent('')
+    const whatsappUrl = `https://wa.me/+221773237733?text=${whatsappMessage}`;
 
     const toggleDrawer = (open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -32,19 +40,37 @@ const Header = ({ children }) => {
             partnersSection.scrollIntoView({ behavior: "smooth" });
         }
     };
+    const [formData,setFormData]=useState({email:""})
+    const [status, setStatus] = useState("");
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus("Envoi en cours...");
+        try {
+            //await submitContactForm(formData);
+            setStatus("Email prise en compte succès !");
+            setFormData({  email: "" });
+        } catch (error) {
+            setStatus("Erreur lors de l'envoi du message.");
+        }
+    };
 
-    const renderMenuItems = () => (
+
+   /*  const renderMenuItems = () => (
         <>
             <Button component={Link} to="/" color="inherit">Accueil</Button>
             <Button component={Link} to="/product" color="inherit">Produits</Button>
             <Button onClick={scrollToPartners} color="inherit">Partenaires</Button>
             <Button component={Link} to="/contact" color="inherit">Contact</Button>
         </>
-    );
+    ); */
 
     return (
         <Box sx={{ backgroundColor: grey[100], minHeight: "100vh", position: "relative" }}>
-            <AppBar position="fixed" sx={{
+            {/* <AppBar position="fixed" sx={{
                 backgroundImage: `linear-gradient(45deg, ${green[700]}, ${green[400]})`,
                 py: 1
             }}>
@@ -54,7 +80,7 @@ const Header = ({ children }) => {
                         EcoShop
                     </Typography>
 
-                    {/* Phone Number */}
+                    {/* Phone Number /}
                     <Box sx={{ display: { xs: 'flex', sm: 'flex' }, alignItems: 'center', ml: 'auto', mr: 2 }}>
                         <IconButton color="inherit" href="tel:+221773237733">
                             <PhoneIcon />
@@ -92,7 +118,120 @@ const Header = ({ children }) => {
                         </Drawer>
                     </Box>
                 </Toolbar>
+            </AppBar> */}
+            <AppBar
+                position="fixed"
+                sx={{
+                    backgroundColor: "white",
+                    boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+                    borderBottom: `1px solid ${grey[300]}`,
+                    py: 1,
+                }}
+            >
+                <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+                    {/* Logo */}
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                        <img src="/logo/logos.png" alt="Logo" width={40} height={34} />
+                        <Typography
+                            variant="h6"
+                            component="div"
+                            sx={{
+                                ml: 1,
+                                fontWeight: "bold",
+                                color: green[700],
+                                display: { xs: "none", sm: "block" },
+                            }}
+                        >
+                            EcoShop
+                        </Typography>
+                    </Box>
+
+                    {/* Menu items (Desktop) */}
+                    <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
+                        <Button component={Link} to="/" sx={{ color: grey[800], fontWeight: "600" }}>
+                            Accueil
+                        </Button>
+                        <Button component={Link} to="/product" sx={{ color: grey[800], fontWeight: "600" }}>
+                            Produits
+                        </Button>
+                        <Button onClick={scrollToPartners} sx={{ color: grey[800], fontWeight: "600" }}>
+                            Partenaires
+                        </Button>
+                        <Button component={Link} to="/contact" sx={{ color: grey[800], fontWeight: "600" }}>
+                            Contact
+                        </Button>
+                    </Box>
+
+                    {/* Contact Info (Phone number) - visible on all screens */}
+                    <Box
+                        sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            backgroundColor: green[50],
+                            borderRadius: 1,
+                            px: 1.5,
+                        }}
+                    >
+                        <IconButton color="inherit" href="tel:+221773237733" sx={{ color: green[600] }}>
+                            <PhoneIcon />
+                        </IconButton>
+                        <Typography
+                            variant="body2"
+                            component="a"
+                            href="tel:+221773237733"
+                            sx={{
+                                color: green[700],
+                                textDecoration: "none",
+                                fontWeight: "500",
+                                "&:hover": { textDecoration: "underline" },
+                            }}
+                        >
+                            +(221) 77 323 77 33
+                        </Typography>
+                    </Box>
+
+                    {/* Cart and Menu (Mobile) */}
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                        <IconButton component={Link} to="/cart" sx={{ color: green[600] }}>
+                            <Badge badgeContent={cartItemsCount} color="error">
+                                <ShoppingCartIcon />
+                            </Badge>
+                        </IconButton>
+
+                        {/* Mobile Menu Icon */}
+                        <Box sx={{ display: { xs: "flex", md: "none" } }}>
+                            <IconButton edge="start" color="inherit" onClick={toggleDrawer(true)} sx={{ color: grey[800] }}>
+                                <MenuIcon />
+                            </IconButton>
+                            <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
+                                <Box
+                                    sx={{ width: 250, mt: 2 }}
+                                    role="presentation"
+                                    onClick={toggleDrawer(false)}
+                                    onKeyDown={toggleDrawer(false)}
+                                >
+                                    <List>
+                                        <ListItem button component={Link} to="/" onClick={toggleDrawer(false)}>
+                                            <ListItemText primary="Accueil" />
+                                        </ListItem>
+                                        <ListItem button component={Link} to="/product" onClick={toggleDrawer(false)}>
+                                            <ListItemText primary="Produits" />
+                                        </ListItem>
+                                        <ListItem button onClick={() => { toggleDrawer(false); scrollToPartners(); }}>
+                                            <ListItemText primary="Partenaires" />
+                                        </ListItem>
+                                        <ListItem button component={Link} to="/contact" onClick={toggleDrawer(false)}>
+                                            <ListItemText primary="Contact" />
+                                        </ListItem>
+                                    </List>
+                                </Box>
+                            </Drawer>
+                        </Box>
+                    </Box>
+                </Toolbar>
             </AppBar>
+
+
 
             <Box sx={{ mt: { xs: "56px", sm: "64px" }, padding: 2 }}>
                 {children}
@@ -136,20 +275,30 @@ const Header = ({ children }) => {
                         <Typography variant="body2" sx={{ mb: 2 }}>
                             Recevez des mises à jour sur nos derniers produits et offres exclusives.
                         </Typography>
-                        <Box component="form" sx={{ display: "flex" }}>
-                            <TextField
-                                variant="filled"
-                                placeholder="Votre adresse e-mail"
-                                fullWidth
-                                InputProps={{
-                                    disableUnderline: true,
-                                    sx: { backgroundColor: "white", marginRight: 8 }
-                                }}
-                            />
-                            <Button variant="contained" sx={{ backgroundColor: grey[800], color: "white" }}>
-                                S'inscrire
-                            </Button>
-                        </Box>
+                        <form onSubmit={handleSubmit}> 
+                            <Box   sx={{ display: "flex" }}>
+                                <TextField
+                                    variant="filled"
+                                    name="email"
+                                    value={formData.email}
+                                    type="email"
+                                    onChange={handleChange}
+                                    placeholder="Votre adresse e-mail"
+                                    fullWidth
+                                    required
+                                    InputProps={{
+                                        disableUnderline: true,
+                                        sx: { backgroundColor: "white", marginRight: 8 }
+                                    }} 
+                                />
+                                <Button variant="contained" type="submit" sx={{ backgroundColor: grey[800], color: "white" }}>
+                                    S'inscrire
+                                </Button>
+                           
+                            </Box>
+                        </form> 
+                         
+                        {status && <Typography variant="body2" color="secondary" sx={{ marginTop: 2 }}>{status}</Typography>}
                     </Grid>
 
                     <Grid item xs={12} md={2} sx={{ textAlign: "center" }}>
@@ -188,24 +337,29 @@ const Header = ({ children }) => {
                 component={Link}
                 to="/cart"
             >
-                <Badge
-                    badgeContent={cartItemsCount}
-                    color="error"
-                    sx={{
-                        '& .MuiBadge-badge': {
-                            top: -28,
-                            right: -15,
-                            transform: 'scale(1)',
-                            minWidth: 20,
-                            height: 20,
-                            borderRadius: '50%',
-                            fontSize: '0.75rem',
-                        },
-                    }}
-                >
+                {cartItemsCount > 0 ? (
+                    <Badge
+                        badgeContent={cartItemsCount}
+                        color="error"
+                        sx={{
+                            '& .MuiBadge-badge': {
+                                top: -28,
+                                right: -15,
+                                transform: 'scale(1)',
+                                minWidth: 20,
+                                height: 20,
+                                borderRadius: '50%',
+                                fontSize: '0.75rem',
+                            },
+                        }}
+                    >
+                        <ShoppingCartIcon />
+                    </Badge>
+                ) : (
                     <ShoppingCartIcon />
-                </Badge>
+                )}
             </Fab>
+
 
             {/* Floating WhatsApp Button */}
             <Fab
@@ -218,7 +372,7 @@ const Header = ({ children }) => {
                     backgroundColor: "#25D366",  // WhatsApp green color
                     color: "white",
                 }}
-                href="https://wa.me/+221773237733"  
+                href={whatsappUrl}  
                 target="_blank"
             >
                 <WhatsAppIcon />

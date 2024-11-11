@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeItemFromCart, clearCart, increaseItemQuantity, decreaseItemQuantity } from './CartSlice';
 import {
-  Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, TablePagination, Typography, Box, TextField, Grid
+  Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, TablePagination, Typography, Box, Grid
 } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
+import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import DisplayMessage from './DisplayMessage';
@@ -13,6 +13,8 @@ import InfoIcon from '@mui/icons-material/Info';
 import { green, grey } from "@mui/material/colors";
 import CardMedia from '@mui/material/CardMedia';
 import NumberWithSeparator from './NumberWithSeparator';
+import { TextField, InputAdornment } from "@mui/material";
+import SearchIcon from '@mui/icons-material/Search';
 
 const ShoppingCartPage = () => {
   const dispatch = useDispatch();
@@ -80,14 +82,35 @@ const ShoppingCartPage = () => {
       
       {cartItems.length > 0 && (
         <TextField
-          label="Rechercher dans le panier"
+          label="Rechercher un produit dans le panier"
           variant="outlined"
           fullWidth
           margin="normal"
           value={searchTerm}
           onChange={handleSearchChange}
           placeholder="Entrez le nom d'un produit..."
-        />
+          InputProps={{
+              startAdornment: (
+                  <InputAdornment position="start">
+                      <SearchIcon color="success" />
+                  </InputAdornment>
+              ),
+              sx: {
+                  borderRadius: '20px',
+                  backgroundColor: '#f5f5f5',
+                  '&:hover .MuiOutlinedInput-notchedOutline': {
+                      borderColor: '#4caf50',
+                  },
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                      borderColor: '#4caf50',
+                  },
+                },
+              }}
+              sx={{
+                  boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                  borderRadius: '20px',
+              }}
+          />
       )}
       
       <Typography variant="h4" align="center" gutterBottom>
@@ -105,8 +128,9 @@ const ShoppingCartPage = () => {
               <TableRow>
                 <TableCell>Produit</TableCell>
                 <TableCell>Image</TableCell>
-                <TableCell align="center">Prix</TableCell>
+                <TableCell align="center">Prix unitaire</TableCell>
                 <TableCell align="center">Quantité</TableCell>
+                <TableCell align="center">Prix total</TableCell>
                 <TableCell align="center">Actions</TableCell>
               </TableRow>
             </TableHead>
@@ -116,14 +140,27 @@ const ShoppingCartPage = () => {
                   <TableCell>{item.name}</TableCell>
                   <TableCell component={Link} to={`/product/${item.id}`}>
                     <CardMedia
-                        sx={{width: '50px', height: '50px', objectFit: 'cover', borderRadius: '18px' }}
                         component="img"
                         title='Voir détails produit'
                         image={item.image}
                         alt={item.name}
+                        variant="outlined"
+                        sx={{
+                          width: '50px', height: '50px', objectFit: 'cover', borderRadius: '18px',
+                          transition: "transform 0.3s ease-in-out",
+                          "&:hover": {
+                            animation: "bounce 0.6s ease-in-out",
+                              "@keyframes bounce": {
+                              "0%": { transform: "scale(1) translateY(0)" },
+                              "30%": { transform: "scale(1.05) translateY(-10px)" },
+                              "60%": { transform: "scale(0.98) translateY(5px)" },
+                              "100%": { transform: "scale(1) translateY(0)" },
+                            }
+                          }
+                        }}
                     />
                   </TableCell>
-                  <TableCell align="center" sx={{width:'30%'}}><NumberWithSeparator number={item.price} /></TableCell>
+                  <TableCell align="center" sx={{width:'20%'}}><NumberWithSeparator number={item.price} /></TableCell>
                   <TableCell align="center">
                     <Box display="flex" justifyContent="center" alignItems="center">
                       <IconButton onClick={() => handleDecreaseQuantity(item.id)} size="small">
@@ -135,13 +172,14 @@ const ShoppingCartPage = () => {
                       </IconButton>
                     </Box>
                   </TableCell>
+                  <TableCell align="center" sx={{width:'2S0%'}}><NumberWithSeparator number={item.price*item.quantity} /></TableCell>
                   <TableCell align="center">
                     <Box display="flex" justifyContent="center" alignItems="center">
                       <IconButton aria-label="view details" title="Voir détails produit" color='primary' component={Link} to={`/product/${item.id}`}>
                         <InfoIcon />
                       </IconButton>
-                      <IconButton onClick={() => handleRemoveItem(item.id)} title='Supprimer produit' color="error">
-                        <DeleteIcon />
+                      <IconButton onClick={() => handleRemoveItem(item.id)} title='supprimer produit du panier' color="error">
+                        <RemoveShoppingCartIcon />
                       </IconButton>
                     </Box>
                   </TableCell>
