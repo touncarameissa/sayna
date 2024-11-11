@@ -1,0 +1,130 @@
+[
+    {
+      "id": 1,
+      "name": "Arachides fumées",
+      "price": 600,
+      "image": "/images/arachide fume.jpg",
+      "description": "Bon pour l'apport calories et la santé physique"
+    },
+    {
+      "id": 2,
+      "name": "Bananes",
+      "price": 750,
+      "image": "/images/banana.jpg",
+      "description": "Produit bio bon pour la perte de poids naturelle"
+    },
+    {
+      "id": 3,
+      "name": "Bicyclette",
+      "price": 100000,
+      "image": "/images/bicyclette.jpg",
+      "description": "Faite avec des matières écologique, bonne pour la santé et non polluante"
+    },
+    {
+      "id": 4,
+      "name": "Chaussure sport",
+      "price": 15000,
+      "image": "/images/chaussure sport.jpg",
+      "description": "Matières écologiques, légères et adaptées au sport"
+    },
+    {
+      "id": 5,
+      "name": "Chips pomme de terre",
+      "price": 500,
+      "image": "/images/chips pomme de terre.jpg",
+      "description": "Vigoureux et seins"
+    },
+    {
+      "id": 6,
+      "name": "Citrons",
+      "price": 4000,
+      "image": "/images/citron.jpg",
+      "description": "Tonnifiant naturel"
+    },
+    {
+      "id": 7,
+      "name": "Cornflakes",
+      "price": 3500,
+      "image": "/images/cornflakes.jpg",
+      "description": "Nourissants pour les enfants et soulage en déplacement"
+    },
+    {
+      "id": 8,
+      "name": "Fraise",
+      "price": 2500,
+      "image": "/images/fraise.jpg",
+      "description": "Fruit naturelle,concervation bio , ferme et mure"
+    },
+    {
+      "id": 9,
+      "name": "Jars",
+      "price": 6500,
+      "image": "/images/jars ecologique.jpg",
+      "description": "Fait avec de l'argile qui nécessite pas une exploitation abusive de sol"
+    },
+    {
+      "id": 10,
+      "name": "Jus de fruits",
+      "price": 1500,
+      "image": "/images/jus de fruits.jpg",
+      "description": "Frait,tonifiant et écologique"
+    },
+    {
+      "id": 11,
+      "name": "Maquillage bio",
+      "price": 3000,
+      "image": "/images/maquillage bio.jpg",
+      "description": "Pour plus de santé éléments non nossif pour l'utilisateur et pour la planète"
+    },
+    {
+      "id": 12,
+      "name": "Pain",
+      "price": 300,
+      "image": "/images/pain.jpg",
+      "description": "Pain à base de produit locaux"
+    },
+    {
+      "id": 13,
+      "name": "Panneaux solaire",
+      "price": 60000,
+      "image": "/images/panneaux solaire.jpg",
+      "description": "Lutte contre les pollutions gazière, chimique etc."
+    },
+    {
+      "id": 14,
+      "name": "Acqua di GIO",
+      "price": 7500,
+      "image": "/images/parfum.jpg",
+      "description": "senteur pur bon pour le corps et pour l'environnement"
+    },
+    {
+      "id": 15,
+      "name": "Pommes de terre",
+      "price": 3500,
+      "image": "/images/pommes de terre.jpg",
+      "description": "Bio à cent pour cent de nos maraicheurs"
+    },
+    {
+      "id": 16,
+      "name": "Poudre de chocola bio",
+      "price": 2500,
+      "image": "/images/poudre de chocola bio.jpg",
+      "description": "A haute qualité et délicieux"
+    },
+    {
+      "id": 17,
+      "name": "Raisins",
+      "price": 1000,
+      "image": "/images/raisins.jpg",
+      "description": "Fruits de haut de gamme certifiés ISO"
+    },
+    {
+      "id": 18,
+      "name": "Trousseau pour les dents",
+      "price": 3000,
+      "image": "/images/trousseau pour dents.jpg",
+      "description": "Brosse à dents en bambou avec une patte de conditionnement bio"
+    }
+    
+  ]
+  
