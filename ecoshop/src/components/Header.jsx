@@ -75,7 +75,7 @@ const Header = ({ children }) => {
                 py: 1
             }}>
                 <Toolbar>
-                    <img src='/logo/logos.png' alt="Logo" width={40} height={34} /> &nbsp;&nbsp;&nbsp;
+                    <img src={`${process.env.PUBLIC_URL}/logo/logos.png`} alt="Logo" width={40} height={34} /> &nbsp;&nbsp;&nbsp;
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
                         EcoShop
                     </Typography>
@@ -319,7 +319,7 @@ const Header = ({ children }) => {
 
                 <Box sx={{ textAlign: "center", mt: 4, pt: 2, borderTop: `1px solid ${grey[500]}` }}>
                     <Typography variant="body2">&copy; 2024 EcoShop - Tous droits réservés</Typography>
-                    <img src='/logo/logos.png' alt="Logo" width={40} height={34} />
+                    <img src={`${process.env.PUBLIC_URL}/logo/logos.png`} alt="Logo" width={40} height={34} />
                 </Box>
             </Box>
 

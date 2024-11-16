@@ -56,7 +56,7 @@ const ProductPage = () => {
     setColor("warning");
     setShowSnackbar(true);
   };
-  const productsData = UseFetch("/datas/products.json")
+  const productsData = UseFetch(`${process.env.PUBLIC_URL}/datas/products.json`);
   const handleChangePage = (event, value) => {
     setPage(value);
   };
@@ -170,7 +170,7 @@ const ProductPage = () => {
                   }}
                     component="img"
                     height="194"
-                    image={product.image}
+                    image={`${process.env.PUBLIC_URL}${product.image}`}
                     alt={product.name}
                 />
                 <CardContent>

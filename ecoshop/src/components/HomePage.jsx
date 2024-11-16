@@ -16,7 +16,7 @@ import CardMedia from '@mui/material/CardMedia';
 import NumberWithSeparator from './NumberWithSeparator';
 
 const HomePage = () => {
-    const products = UseFetch("/datas/productfar.json");
+    const products = UseFetch(`${process.env.PUBLIC_URL}/datas/productfar.json`);
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart.cartItems);
     const [showSnackbar, setShowSnackbar] = useState(false);
@@ -119,7 +119,7 @@ const HomePage = () => {
                                     }}
                                     component="img"
                                     height="194"
-                                    image={item.image}
+                                    image={`${process.env.PUBLIC_URL}${item.image}`}
                                     alt={item.name}
                                 />
                                 <Typography variant="h6">{item.name}</Typography>

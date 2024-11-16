@@ -142,7 +142,7 @@ const ShoppingCartPage = () => {
                     <CardMedia
                         component="img"
                         title='Voir détails produit'
-                        image={item.image}
+                        image={`${process.env.PUBLIC_URL}${item.image}`}
                         alt={item.name}
                         variant="outlined"
                         sx={{
