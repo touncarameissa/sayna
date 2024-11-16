@@ -14,7 +14,7 @@ Bienvenue dans **EcoShop**, une application e-commerce écologique !
 ### Position dans gitHUb
   - à la racine du dépôt **sayna** dans un sous dossier nommé **annexes**
 ### contenu     
-  -saynaEchoshop.fig pour le prototype fait avec **Figma**
+  - saynaEchoshop.fig pour le prototype fait avec **Figma**
   - la partie gestion de projet avec **Jira**
 
     
