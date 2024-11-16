@@ -73,7 +73,7 @@ Bienvenue dans **EcoShop**, une application e-commerce écologique !
     - Installer les icons  matrial UI pour react
        - npm install @mui/icons-material
     - Installer le module Carousel  pour le défilement des informations des partenaires
-        npm install react-material-ui-carousel
+       - npm install react-material-ui-carousel
     - Installer le module de routage
        - npm install react-router-dom
     - Installer les modules suivantes l’état globales des données de l’appplication
