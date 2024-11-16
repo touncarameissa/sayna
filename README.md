@@ -1,15 +1,15 @@
 # EcoShop
 
-Bienvenue dans **EcoShop**, une application e-commerce écologique !
+Bienvenue dans **EcoShop**, une application e-commerce écologique !  
 
 ---
-## Accés à mon portfolio
-  - https://meissa-touncara-portfolio.netlify.app
+## 🚀 **Accès aux plateformes**  
+
+- **Portfolio** : [Meissa Touncara - Portfolio](https://meissa-touncara-portfolio.netlify.app)  
+- **EcoShop déployé** : [EcoShop - Démo en ligne](https://sayna-ecoshop.netlify.app)  
+
     
-## EcoShop deployé
-  - https://sayna-ecoshop.netlify.app
-    
-## Fichiers à annexes 
+## 📂 **Fichiers annexes** 
 
 ### Position dans gitHUb
   - à la racine du dépôt **sayna** dans un sous dossier nommé **annexes**
@@ -51,17 +51,16 @@ Bienvenue dans **EcoShop**, une application e-commerce écologique !
 
 ---
 
-## Technologies utilisées
+## 🛠️ **Technologies utilisées**
 
 - **React** : pour construire l'interface utilisateur.
 - **Redux Toolkit** : pour gérer l'état global de l'application.
 - **Material-UI** : pour une interface élégante et réactive.
 - **React Router** : pour la navigation entre les pages.
-- **Vite** : pour un développement rapide et une construction optimisée.
 
 ---
 
-## Installation
+## 📝 **Installation** 
 
 1. Clonez le dépôt :
    ```bash
