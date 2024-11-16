@@ -9,7 +9,7 @@ import DetailProductPage from './components/DetailProductPage';
 
 function App() {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
         <Routes>
             <Route
                 path="/"
