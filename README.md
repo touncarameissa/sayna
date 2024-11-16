@@ -8,7 +8,7 @@ Bienvenue dans **EcoShop**, une application e-commerce écologique !
     
 ## EcoShop deployé
   - https://sayna-ecoshop.netlify.app
-  - 
+    
 ## Fichiers à annexes 
 
 ### Position dans gitHUb
@@ -17,7 +17,7 @@ Bienvenue dans **EcoShop**, une application e-commerce écologique !
   -saynaEchoshop.fig pour le prototype fait avec **Figma**
   - la partie gestion de projet avec **Jira**
 
-  - 
+    
 ## Fonctionnalités principales
 
 ### 🛒 Gestion du panier
