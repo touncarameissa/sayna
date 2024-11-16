@@ -131,8 +131,8 @@ const Header = ({ children }) => {
                 <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
                     {/* Logo */}
                     <Box sx={{ display: "flex", alignItems: "center" }}>
-                        <img src="/logo/logos.png" alt="Logo" width={40} height={34} />
-                        <Typography
+                        <img src="/logo/logos.png" alt="Logo" width={40} height={34} data-testid="logo"  />
+                        <Typography data-testid="shop-name"
                             variant="h6"
                             component="div"
                             sx={{
@@ -148,16 +148,16 @@ const Header = ({ children }) => {
 
                     {/* Menu items (Desktop) */}
                     <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
-                        <Button component={Link} to="/" sx={{ color: grey[800], fontWeight: "600" }}>
+                        <Button component={Link} to="/" sx={{ color: grey[800], fontWeight: "600" }} data-testid="accueil"> 
                             Accueil
                         </Button>
-                        <Button component={Link} to="/product" sx={{ color: grey[800], fontWeight: "600" }}>
+                        <Button component={Link} to="/product" sx={{ color: grey[800], fontWeight: "600" }} data-testid="produits">
                             Produits
                         </Button>
-                        <Button onClick={scrollToPartners} sx={{ color: grey[800], fontWeight: "600" }}>
+                        <Button onClick={scrollToPartners} sx={{ color: grey[800], fontWeight: "600" }} data-testid="partenaires">
                             Partenaires
                         </Button>
-                        <Button component={Link} to="/contact" sx={{ color: grey[800], fontWeight: "600" }}>
+                        <Button component={Link} to="/contact" sx={{ color: grey[800], fontWeight: "600" }} data-testid="contact">
                             Contact
                         </Button>
                     </Box>
@@ -341,6 +341,7 @@ const Header = ({ children }) => {
                     <Badge
                         badgeContent={cartItemsCount}
                         color="error"
+                        data-testid="cart-badge"
                         sx={{
                             '& .MuiBadge-badge': {
                                 top: -28,
