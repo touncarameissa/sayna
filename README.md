@@ -87,7 +87,8 @@ Bienvenue dans **EcoShop**, une application e-commerce écologique !
         npm install @reduxjs/toolkit
         npm install react-redux  --save
         npm install --save redux react-redux
-    - Installer le module de testes unitaires de composants react
+     
+   - Installer le module de testes unitaires de composants react
       ```bash
         npm install --save-dev jest @testing-library/react @testing-library/jest-dom @testing-library/user-event
 3. Installaton du node_modules
