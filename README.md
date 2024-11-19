@@ -70,22 +70,31 @@ Bienvenue dans **EcoShop**, une application e-commerce écologique !
 2. Installer les dépendances suivantes
     - Installer matrial UI pour react
       ```bash
-       - npm install @mui/material @emotion/react @emotion/styled
+        npm install @mui/material @emotion/react @emotion/styled
     - Installer les icons  matrial UI pour react
-       - npm install @mui/icons-material
+      ```bash
+        npm install @mui/icons-material
     - Installer le module Carousel  pour le défilement des informations des partenaires
-       - npm install react-material-ui-carousel
+      ```bash
+        npm install react-material-ui-carousel
     - Installer le module de routage
        - npm install react-router-dom
     - Installer les modules suivantes l’état globales des données de l’appplication
-       - npm install @reduxjs/toolkit
-       - npm install react-redux  --save
-       - npm install --save redux react-redux
+    - ```bash
+        npm install @reduxjs/toolkit
+      ```bash
+        npm install react-redux  --save
+      ```bash
+        npm install --save redux react-redux
     - Installer le module de testes unitaires de composants react
-       - npm install --save-dev jest @testing-library/react @testing-library/jest-dom @testing-library/user-event
+      ```bash
+        npm install --save-dev jest @testing-library/react @testing-library/jest-dom @testing-library/user-event
 3. Installaton du node_modules
-  - npm install
+   ```bash
+   npm install
 4. Lancer en local
-   - npm  start
+   ```bash
+    npm  start
 3. Visualisation en local dans la barre d'adresse du navigateur
-    - localhost:3000
+   ```bash
+     localhost:3000
