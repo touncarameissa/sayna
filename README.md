@@ -78,13 +78,12 @@ Bienvenue dans **EcoShop**, une application e-commerce écologique !
       ```bash
         npm install react-material-ui-carousel
     - Installer le module de routage
-       - npm install react-router-dom
+    - ```bash
+        npm install react-router-dom
     - Installer les modules suivantes l’état globales des données de l’appplication
     - ```bash
         npm install @reduxjs/toolkit
-      ```bash
         npm install react-redux  --save
-      ```bash
         npm install --save redux react-redux
     - Installer le module de testes unitaires de composants react
       ```bash
