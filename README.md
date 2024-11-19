@@ -69,6 +69,7 @@ Bienvenue dans **EcoShop**, une application e-commerce écologique !
    git clone https://github.com/touncarameissa/sayna.git
 2. Installer les dépendances suivantes
     - Installer matrial UI pour react
+      ```bash
        - npm install @mui/material @emotion/react @emotion/styled
     - Installer les icons  matrial UI pour react
        - npm install @mui/icons-material
