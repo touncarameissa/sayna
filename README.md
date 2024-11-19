@@ -6,24 +6,20 @@ Bienvenue dans **EcoShop**, une application e-commerce écologique !
 ## 🚀 **Accès aux plateformes**  
 
 - **Portfolio** :
-  ```bash
-     [Meissa Touncara - Portfolio](https://meissa-touncara-portfolio.netlify.app)  
+   - [Meissa Touncara - Portfolio](https://meissa-touncara-portfolio.netlify.app)  
 - **EcoShop déployé** :
- ```bash
-    [EcoShop - Démo en ligne](https://sayna-ecoshop.netlify.app)  
+  - [EcoShop - Démo en ligne](https://sayna-ecoshop.netlify.app)  
 
     
 ## 📂 **Fichiers annexes plus liens internet** 
 
 ### Position dans gitHUb
-  - à la racine du dépôt **sayna** dans un sous dossier nommé **annexes**
+  - A la racine du dépôt **sayna** dans un sous dossier nommé **annexes**
 ### contenu fichiers et liens
   - saynaEchoshop.fig pour le prototype fait avec **Figma**
-```bash
-     https://www.figma.com/design/1BMcj96edfhXrAZFqi61Ui/saynaEchoshop?node-id=0-1&t=M0CUpjWV0uQiGSlp-1
+    - https://www.figma.com/design/1BMcj96edfhXrAZFqi61Ui/saynaEchoshop?node-id=0-1&t=M0CUpjWV0uQiGSlp-1
   - la partie gestion de projet avec **Jira**
-    ```bash
-       https://touncarameissa-1731502386134.atlassian.net/jira/software/projects/ECOSHOP/boards/2?atlOrigin=eyJpIjoiNDYyODY2ZWY4MmU5NGY4Njg1NmJiNjU3NmI5MzBkMDgiLCJwIjoiaiJ9
+    - https://touncarameissa-1731502386134.atlassian.net/jira/software/projects/ECOSHOP/boards/2?atlOrigin=eyJpIjoiNDYyODY2ZWY4MmU5NGY4Njg1NmJiNjU3NmI5MzBkMDgiLCJwIjoiaiJ9
 
     
 ## Fonctionnalités principales
