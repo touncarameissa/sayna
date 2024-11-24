@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# EcoShop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bienvenue dans **EcoShop**, une application e-commerce écologique !  
 
-## Available Scripts
+---
+## 🚀 **Accès aux plateformes**  
 
-In the project directory, you can run:
+- **Portfolio** :
+   - [Meissa Touncara - Portfolio](https://meissa-touncara-portfolio.netlify.app)  
+- **EcoShop déployé** :
+  - [EcoShop - Démo en ligne](https://sayna-ecoshop.netlify.app)  
 
-### `npm start`
+    
+## 📂 **Fichiers annexes plus liens internet** 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Position dans gitHUb
+  - A la racine du dépôt **sayna** dans un sous dossier nommé **annexes**
+### contenu fichiers et liens
+  - saynaEchoshop.fig pour le prototype fait avec **Figma**
+    - https://www.figma.com/design/1BMcj96edfhXrAZFqi61Ui/saynaEchoshop?node-id=0-1&t=M0CUpjWV0uQiGSlp-1
+  - la partie gestion de projet avec **Jira**
+    - https://touncarameissa-1731502386134.atlassian.net/jira/software/projects/ECOSHOP/boards/2?atlOrigin=eyJpIjoiNDYyODY2ZWY4MmU5NGY4Njg1NmJiNjU3NmI5MzBkMDgiLCJwIjoiaiJ9
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    
+## Fonctionnalités principales
 
-### `npm test`
+### 🛒 Gestion du panier
+- Visualiser des produits au panier.
+- Modifier les quantités des produits dans le panier.
+- Affichage du nombre d'articles dans le badge du panier.
+- Supprimer un produit du panier.
+- Visualiser les détails d'un produit.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🌍 Navigation responsive
+- Une interface adaptée pour ordinateurs, tablettes et mobiles.
+- Menu de navigation mobile avec bouton déroulant.
 
-### `npm run build`
+### 📞 Support et contact
+- Affichage du numéro de téléphone directement dans la barre de navigation.
+- Bouton WhatsApp pour contacter rapidement notre équipe.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🛍️ Produits
+- Visualisation de produits écologiques avec descriptions détaillées.
+- Affichage de produits dans une disposition responsive.
+- Ajouter un produit au panier s'il n y est pas.
+- Supprimer le produit au panier si il y est déjà ajouté.
+- Visualiser les détails d'un produit.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 🛍️ Détails produit
+- Visualisation d'un produit avec descriptions détaillées.
+- Ajouter le produit au panier s'il n y est pas.
+- supprimer le produit au panier si il y est déjà ajouté. 
+### ⚡ Partenaires
+- Section dédiée à nos partenaires écologiques avec logos.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🛠️ **Technologies utilisées**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **React** : pour construire l'interface utilisateur.
+- **Redux Toolkit** : pour gérer l'état global de l'application.
+- **Material-UI** : pour une interface élégante et réactive.
+- **React Router** : pour la navigation entre les pages.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📝 **Installation** 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Clonez le dépôt :
+   ```bash
+   git clone https://github.com/touncarameissa/sayna.git
+2. Installer les dépendances suivantes
+    - Installer matrial UI pour react
+      ```bash
+        npm install @mui/material @emotion/react @emotion/styled
+    - Installer les icons  matrial UI pour react
+      ```bash
+        npm install @mui/icons-material
+    - Installer le module Carousel  pour le défilement des informations des partenaires
+      ```bash
+        npm install react-material-ui-carousel
+    - Installer le module de routage
+      ```bash
+        npm install react-router-dom
+    - Installer les modules suivantes l’état globales des données de l’appplication
+     ```bash
+        npm install @reduxjs/toolkit
+        npm install react-redux  --save
+        npm install --save redux react-redux
+     
+   - Installer le module de testes unitaires de composants react
+      ```bash
+        npm install --save-dev jest @testing-library/react @testing-library/jest-dom @testing-library/user-event
+3. Installaton du node_modules
+   ```bash
+   npm install
+4. Lancer en local
+   ```bash
+    npm  start
+3. Visualisation en local dans la barre d'adresse du navigateur
+   ```bash
+     localhost:3000
