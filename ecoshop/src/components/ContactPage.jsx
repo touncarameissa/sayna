@@ -39,7 +39,7 @@ const ContactPage = () => {
                 }}
             >
                 <Typography variant="h4" gutterBottom>
-                    Influencer au maximum pour une planette pure et durable
+                    Influencer au maximum pour une planète pure et durable
                 </Typography>
                 <Typography variant="subtitle1" sx={{ fontWeight: 300 }}>
                     Explorez notre sélection de produits respectueux de l’environnement.

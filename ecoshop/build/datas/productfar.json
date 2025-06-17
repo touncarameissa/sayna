@@ -1,0 +1,23 @@
+[
+    {
+      "id": 13,
+      "name": "Panneaux solaire",
+      "price": 60000,
+      "image": "/images/panneaux solaire.jpg",
+      "description": "Lutte contre les pollutions gazière, chimique etc."
+    },
+    {
+      "id": 14,
+      "name": "Acqua di GIO",
+      "price": 7500,
+      "image": "/images/parfum.jpg",
+      "description": "senteur pur bon pour le corps et pour l'environnement"
+    },
+    {
+        "id": 9,
+        "name": "Jars",
+        "price": 6500,
+        "image": "/images/jars ecologique.jpg",
+        "description": "fait avec de l'argile qui nécessite pas une exploitation abusive du sol"
+      }
+]
